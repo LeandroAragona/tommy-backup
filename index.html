@@ -1,0 +1,2328 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Tommy of Escondido's Mapping help Tutorials for Half-Life &amp; Mods: Errors &amp; solutions</title>
+<meta name="description" content="Tommy of Escondido's Mapping help Tutorials for Half-Life &amp; Mods">
+<meta name="keywords" content="half-life halflife counterstrike cs mod map bsp worldcraft wad review links textures">
+</head>
+<body bgcolor="80FFFF" text="000000" link="0000FF" vlink="800080">
+<script src="Tommy%20of%20Escondido's%20Mapping%20help%20Tutorials%20for%20Half-Life%20&amp;%20Mods%20Errors%20&amp;%20solutions_files/jumptop.js">
+//Jump To Top Link Script
+//Copyright Dynamicdrive.com
+//Visit http://www.dynamicdrive.com for this script, and TOS
+</script><span id="logo" style="position: absolute; top: 24231px; z-index: 100; left: 1863px;"><a href="javascript:window.scrollTo(0,0)"><nobr><b>[Top]</b></nobr></a></span>
+<a name="top"></a><center>
+<h3>goto:&nbsp;&nbsp;&nbsp;
+<a href="http://www.slackiller.com/tommy14/cs_maplinks.htm">mapping Links</a>&nbsp;&nbsp;&nbsp;
+<a href="http://www.slackiller.com/tommy14/tutorials.htm">Tutorials</a>
+</h3>
+<hr></center>
+<a title="thanks for the website SlacKiller!">
+<h1>Mapping help Tutorials for Half-Life &amp; Mods</h1>
+<hr>
+<center>
+<h3> Mapping &amp; Compiling Errors and solutions</h3></center></a>
+<table><tbody><tr><td width="70%" valign="top"><center>
+Find your trouble in the tables below for a fast goto, or browse/search the page!</center>
+</td><td>
+<script>
+<!-- Hide from old browsers
+/******************************************
+* Find In Page Script -- Submitted/revised by Alan Koontz (alankoontz@REMOVETHISyahoo.com)
+* Visit Dynamic Drive (http://www.dynamicdrive.com/) for full source code
+* Modified Jan 4th, 03'. This notice must stay intact for use
+******************************************/
+//  revised by Alan Koontz -- 9/18/02
+var TRange = null;
+var win = null;
+var frameval = false;
+
+//  SELECTED BROWSER SNIFFER COMPONENTS DOCUMENTED AT
+//  http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html
+
+var nom = navigator.appName.toLowerCase();
+var agt = navigator.userAgent.toLowerCase();
+var is_major  = parseInt(navigator.appVersion);
+var is_minor  = parseFloat(navigator.appVersion);
+var is_ie     = (agt.indexOf("msie") != -1);
+var is_ie4up  = (is_ie && (is_major >= 4));
+var is_nav    = (nom.indexOf('netscape')!=-1);
+var is_nav4   = (is_nav && (is_major == 4));
+var is_mac    = (agt.indexOf("mac")!=-1);
+var is_gecko  = (agt.indexOf('gecko') != -1);
+
+//  GECKO REVISION
+
+var is_rev=0
+if (is_gecko) {
+temp = agt.split("rv:")
+is_rev = parseFloat(temp[1])
+}
+
+//  USE THE FOLLOWING VARIABLE TO CONFIGURE FRAMES TO SEARCH
+//  (SELF OR CHILD FRAME)
+
+//  If you want to search another frame, change "self" below to
+//  parent.frames["thisframe"]
+//  where "thisframe" is the name of the target frame
+//  eg: var frametosearch1 = parent.frames["thisframe"]
+
+var frametosearch1 = self
+
+function search(whichform, whichframe) {
+
+//  TEST FOR IE5 FOR MAC (NO DOCUMENTATION)
+
+if (is_ie4up && is_mac) return;
+
+//  TEST FOR NAV 6 (NO DOCUMENTATION)
+
+if (is_gecko && (is_rev <1)) return;
+
+//  INITIALIZATIONS FOR FIND-IN-PAGE SEARCHES
+
+if(whichform.findthis.value!=null && whichform.findthis.value!='') {
+
+
+       str = whichform.findthis.value;
+       if(whichframe!=self)
+       frameval=true;  // this will enable Nav7 to search child frame
+       win = whichframe;
+
+    
+}
+
+else return;  //  i.e., no search string was entered
+
+var strFound;
+
+//  NAVIGATOR 4 SPECIFIC CODE
+
+if(is_nav4 && (is_minor < 5)) {
+   
+  strFound=win.find(str); // case insensitive, forward search by default
+
+//  There are 3 arguments available:
+//  searchString: type string and it's the item to be searched
+//  caseSensitive: boolean -- is search case sensitive?
+//  backwards: boolean --should we also search backwards?
+//  strFound=win.find(str, false, false) is the explicit
+//  version of the above
+//  The Mac version of Nav4 has wrapAround, but
+//  cannot be specified in JS
+	}
+
+//  NAVIGATOR 7 SPECIFIC CODE (WILL NOT WORK WITH NAVIGATOR 6)
+
+if (is_gecko && (is_rev >= 1)) {
+   
+    if(frameval!=false) win.focus(); // force search in specified child frame
+    strFound=win.find(str, false, false, true, false, frameval, false);
+
+
+//  There are 7 arguments available:
+//  searchString: type string and it's the item to be searched
+//  caseSensitive: boolean -- is search case sensitive?
+//  backwards: boolean --should we also search backwards?
+//  wrapAround: boolean -- should we wrap the search?
+//  wholeWord: boolean: should we search only for whole words
+//  searchInFrames: boolean -- should we search in frames?
+//  showDialog: boolean -- should we show the Find Dialog?
+}
+
+ if (is_ie4up) {
+
+  // EXPLORER-SPECIFIC CODE
+
+  if (TRange!=null) {
+    TRange.collapse(false)
+    strFound=TRange.findText(str)
+    if (strFound) TRange.select();
+   }
+  if (TRange==null || strFound==0) {
+    TRange=win.document.body.createTextRange()
+    strFound=TRange.findText(str)
+    if (strFound) TRange.select();
+  }
+ }
+
+  if (!strFound) alert ("String '"+str+"' not found!") // string not found
+
+        
+}
+// -->
+</script>
+
+<!--  EXAMPLE FORM OF FIND-IN-PAGE SEARCH USING SUBMIT (ALLOWING 'ENTER/RETURN' KEY PRESS EVENT) -->
+<form name="form1" action="" onsubmit="search(document.form1, frametosearch1); return false"><input type="text" name="findthis" size="15" title="Press 'ALT s' after clicking submit to repeatedly search page"> <input type="submit" value="Find in Page" accesskey="s"></form>
+<!-- end find -->
+</td></tr></tbody></table>
+
+<table bgcolor="white" cellpadding="8" border="1"><tbody><tr><td>
+<center><b>by topics/problems name - semi alphabetical</b></center>
+
+<a href="#allocblock">allocblock:full </a>&nbsp;&nbsp;&nbsp;
+<a href="#malformed">host_error backward mins/maxs </a>&nbsp;&nbsp;&nbsp;
+<a href="#allocblock">D_SCAlloc: bad cache size 0</a>&nbsp;&nbsp;&nbsp;
+<a href="#badsurface">Bad Surface Extents</a>&nbsp;&nbsp;&nbsp;
+<a href="#infonodeblob">5 small blobs of white, yellow, brown, and red dots</a>&nbsp;&nbsp;&nbsp;
+<a href="#decals">bad animating texture....</a>&nbsp;&nbsp;&nbsp;
+<a href="#badstring">Host_Error: Bad String</a>&nbsp;&nbsp;&nbsp;
+<a href="#blackhand">black hand</a>&nbsp;&nbsp;&nbsp; 
+<a href="#outside">brush 'outside world'</a>&nbsp;&nbsp;&nbsp; 
+<a href="#coplane">brush with coplanar faces</a>&nbsp;&nbsp;&nbsp;
+<a href="#nobsp">there is no bsp</a>&nbsp;&nbsp;&nbsp;
+<a href="#emptybox">The box is empty</a>&nbsp;&nbsp;&nbsp;
+<a href="#blackhand">couldnt`read texlights from lights.rad.</a>&nbsp;&nbsp;&nbsp;
+<a href="#wrongversion">Could not validate Half-Life</a>&nbsp;&nbsp;&nbsp;
+<a href="#vector">"CanonicalVector: Degenerate"</a>&nbsp;&nbsp;&nbsp;
+<a href="#pts">...cannot find pts file</a>&nbsp;&nbsp;&nbsp;
+<a href="#trainsound">can't hear my trainsound</a>&nbsp;&nbsp;&nbsp;
+<a href="#invisi">cannot see my textures</a>&nbsp;&nbsp;&nbsp;
+<a href="#nobsp">Host_Changelevel2: Couldn't load map....</a>&nbsp;&nbsp;&nbsp;
+<a href="#chop">ChopWinding:</a>&nbsp;&nbsp;&nbsp;
+<a href="#origin">Clip brush...</a>&nbsp;&nbsp;&nbsp;
+<a href="#wav">com_loadfile: bad usehonk</a>&nbsp;&nbsp;&nbsp; 
+<a href="#modnum">custom file has wrong number of lumps</a>&nbsp;&nbsp;&nbsp; 
+<a href="#decals">decal will not work</a>&nbsp;&nbsp;&nbsp;
+<a href="#edge">Edge with both face id's already filled</a>&nbsp;&nbsp;&nbsp;
+<a href="#vmod">emit_sound : pitch 346</a>&nbsp;&nbsp;&nbsp;
+<a href="#noent">Empty Entity or Entity has no brush</a>&nbsp;&nbsp;&nbsp;
+<a href="#flicker">entity flickering</a>&nbsp;&nbsp;&nbsp;
+<a href="#entlim">too many entities</a>&nbsp;&nbsp;&nbsp;
+<a href="#entlim">Entity Limitation notes:</a>&nbsp;&nbsp;&nbsp;
+<a href="#emptybox">Empty Map</a>&nbsp;&nbsp;&nbsp;
+<a href="#fileread">file read failure</a> &nbsp;&nbsp;&nbsp;
+<a href="#leafsaw">FindTransferOffsetPatchnum...</a>&nbsp;&nbsp;&nbsp; 
+<a href="#fileread">Floating point division by zero</a> &nbsp;&nbsp;&nbsp;
+<a href="#precache">FSB_ALLOWOVERFLOW</a> &nbsp;&nbsp;&nbsp;
+<a href="#modnum">green "flies" around a monster or player</a>&nbsp;&nbsp;&nbsp;
+<a href="#hammer">Hammer Editor problems</a> &nbsp;&nbsp;&nbsp;
+<a href="#rad">HLRAD is SLOW/stuck on makescales</a>&nbsp;&nbsp;&nbsp; 
+<a href="#vis">HLVIS is SLOW/stuck</a>&nbsp;&nbsp;&nbsp; 
+<a href="#hint">How the heck do I use HINTs/How does VIS work</a>&nbsp;&nbsp;&nbsp; 
+<a href="#page">Illegal Page Fault</a>&nbsp;&nbsp;&nbsp; 
+<a href="#invalid">Invalid Argument</a>&nbsp;&nbsp;&nbsp; 
+<a href="#logic">push button/trigger in game and get kicked out</a>&nbsp;&nbsp;&nbsp;
+<a href="#bigtexture">Larger than expected texture</a>&nbsp;&nbsp;&nbsp;
+<a href="#leafsaw">Leaf portal saw into leaf</a>&nbsp;&nbsp;&nbsp; 
+<a href="#leak">leak leak leak</a> &nbsp;&nbsp;&nbsp;
+<a href="#flicker">Lightmap for Texture aaatrigger too large</a>&nbsp;&nbsp;&nbsp;
+<a href="#lightstyles">Warning: Too many direct light styles on a face</a>&nbsp;&nbsp;&nbsp;
+<a href="#badstring">Line 5197 is incomplete</a>&nbsp;&nbsp;&nbsp;
+<a href="#portalfile">LoadPortals: ..... </a> &nbsp;&nbsp;&nbsp;
+<a href="#malformed">Malformed face normal</a> &nbsp;&nbsp;&nbsp;
+ <a href="#nobsp">Map not found on server</a>&nbsp;&nbsp;&nbsp;
+ <a href="#portalclip">MakeNodePortal:new portal was clipped away from node</a>&nbsp;&nbsp;&nbsp;
+ <a href="#allocblock">Malloc Block: Full</a>&nbsp;&nbsp;&nbsp;
+<p>
+<a href="#leafface">Max_leaf_faces </a> &nbsp;&nbsp;&nbsp; 
+<a href="#maxlim"><b>general MAX_MAP limits</b></a> &nbsp;&nbsp;&nbsp;
+<a href="#clipnode">MAX_MAP_CLIPNODES</a>&nbsp;&nbsp;&nbsp;
+<a href="#miptex">MAX_MAP_MIPTEX</a>&nbsp;&nbsp;&nbsp; 
+<a href="#models">MAX_MAP_MODELS</a>&nbsp;&nbsp;&nbsp;
+ <a href="#maxpatch">MAX_PATCHES</a>&nbsp;&nbsp;&nbsp; 
+<a href="#numplanes">max_map_planes</a>&nbsp;&nbsp;&nbsp; 
+<a href="#maxpoints">MAXPOINTS</a>&nbsp;&nbsp;&nbsp;
+<a href="#maxportal">MAX_PORTALS_ON_LEAF</a>&nbsp;&nbsp;&nbsp;
+<a href="#flicker">MAX_SWITCHED_LIGHTS</a>&nbsp;&nbsp;&nbsp;
+<a href="#chop">Max_tri_....</a>&nbsp;&nbsp;&nbsp;
+<a href="#lowmem">Memory allocation failure</a>&nbsp;&nbsp;&nbsp;
+<a href="#modnum">model has yellow/gold/green dots</a>&nbsp;&nbsp;&nbsp;
+<a href="#modnum">Mod-NumforName</a>&nbsp;&nbsp;&nbsp;
+<a href="#interval">Mod_LoadSpriteGroup: interval&lt;=0</a>&nbsp;&nbsp;&nbsp;
+<a href="#parsemark">Mod_parseMarksurfaces: bad surface number</a>&nbsp;&nbsp;&nbsp;
+<a href="#manytext">mip&gt;=loadmodel-&gt;numtextures</a>&nbsp;&nbsp;&nbsp; 
+<a href="#mixed">mixed face contents</a>&nbsp;&nbsp;&nbsp;
+ <a href="#texturedef">missing [ in texturedef</a>&nbsp;&nbsp;&nbsp; 
+<a href="#noent">....No entities exist in hull #,....</a>&nbsp;&nbsp;&nbsp;
+<a href="#noedict">no free edicts</a>&nbsp;&nbsp;&nbsp; 
+<a href="#nohud">no HUD</a>&nbsp;&nbsp;&nbsp;
+<a href="#noedict">node graph...</a>&nbsp;&nbsp;&nbsp;
+<a href="#logic">NON-Solid Set To Glow </a>&nbsp;&nbsp;&nbsp;
+<a href="#noedict">NUM_FOR_EDICT: bad pointer</a>&nbsp;&nbsp;&nbsp;  
+<a href="#numplanes">ReadSurfs (line 99416): 32189 &gt; g_numplanes</a>&nbsp;&nbsp;&nbsp;
+<a href="#miptex">ReadSurfs (line ReadSurfs: 990 &gt; numtexinfo</a>&nbsp;&nbsp;&nbsp;  
+<a href="#origin">origin brush...</a>&nbsp;&nbsp;&nbsp;
+<a href="#precache">500 overflow temporary ents!</a>&nbsp;&nbsp;&nbsp;
+<a href="#parsing">Error parsing brush</a>&nbsp;&nbsp;&nbsp; 
+<a href="#emptybox">ParseEntity: EOF without closing brace</a>&nbsp;&nbsp;&nbsp; 
+<a href="#emptybox">Parsing Entity 0, expected '{' got '@RMF'</a>&nbsp;&nbsp;&nbsp;
+<a href="#usrmsg">host error : PF_setview_1:not a client</a>&nbsp;&nbsp;&nbsp;
+<a href="#plane">plane with no normal</a>&nbsp;&nbsp;&nbsp; 
+<a href="#portalfile">Portal file xxxxxx does not exist</a>&nbsp;&nbsp;&nbsp; 
+<a href="#precache">HOST ERROR:....precache</a>&nbsp;&nbsp;&nbsp; 
+<a href="#mixed">RankForContents: bad contents</a>&nbsp;&nbsp;&nbsp;
+<a href="#rload">R_LoadSky: Couldn't load gfx/env/......tga</a>&nbsp;&nbsp;&nbsp; 
+<a href="#trainsound">Sentence or pitch shift ignored</a>&nbsp;&nbsp;&nbsp; 
+<a href="#serialize">SerializeRMF()v2.2 tried to load a file v0.0 Aborting</a>&nbsp;&nbsp;&nbsp; 
+<a href="#leafface">short ### surfaces </a> &nbsp;&nbsp;&nbsp;
+<a href="#leafface">short ### edges </a> &nbsp;&nbsp;&nbsp;
+<a href="#skyboxing">on skyboxing</a> &nbsp;&nbsp;&nbsp;
+<a href="#sprites">.....SKY brushes not allowed in entity</a>&nbsp;&nbsp;&nbsp; 
+<a href="#unmatched">My SKY is flashing, distorted, or white</a>&nbsp;&nbsp;&nbsp;
+<a href="#noent">Solid Entity is empty</a>&nbsp;&nbsp;&nbsp;
+<a href="#wav">sound overrun</a>&nbsp;&nbsp;&nbsp;
+<a href="#spawnull">Spawned a NULL entity</a>&nbsp;&nbsp;&nbsp;
+<a href="#sprites">sprites problems</a>&nbsp;&nbsp;&nbsp; 
+</p><p>
+<a href="#malformed">SubdivideFace: didn't split the 4-sided polygon @(coordinates)</a>&nbsp;&nbsp;&nbsp; 
+<a href="#shutdown">ShutdownOpenGL-wglMakeCurrent failed</a>&nbsp;&nbsp;&nbsp;
+<a href="#skywater">my SKY turns invisible when I am in a func_water</a>&nbsp;&nbsp;&nbsp; 
+<a href="#precache">SVC_BAD</a>&nbsp;&nbsp;&nbsp; 
+<a href="#recursive">sv_recursivehallcheck:bad node number</a>&nbsp;&nbsp;&nbsp;
+<a href="#wav">sv_startsound: sound = 2550</a>&nbsp;&nbsp;&nbsp; 
+<a href="#swap">Warning: SwapTransfers: unmatched</a>&nbsp;&nbsp;&nbsp; 
+<a href="#portalclip">SZ_Getspace Overflow on netchan</a>&nbsp;&nbsp;&nbsp;
+<a href="#wav">S_Findname - out of sfx_t</a>&nbsp;&nbsp;&nbsp;
+<a href="#check">textures are checkered or have dots</a>&nbsp;&nbsp;&nbsp;
+<a href="#linetex">textures far off get lines</a>&nbsp;&nbsp;&nbsp;
+<a href="#bigtexture">texture axis perpendicular to face</a>&nbsp;&nbsp;&nbsp;
+<a href="#check">WARNING: Texture lump "xxxxxx" not found</a>&nbsp;&nbsp;&nbsp;
+<a href="#invisi">textures xxxxxx is not 16 aligned</a>&nbsp;&nbsp;&nbsp;
+<a href="#hammer">Textures overlap in WC/Hammer</a>&nbsp;&nbsp;&nbsp;
+<a href="#malformed">tiny penetration in Hull 4</a>&nbsp;&nbsp;&nbsp;
+<a href="#token">Token too large</a>&nbsp;&nbsp;&nbsp;
+<a href="#unmatched">tracker UI not valid, not loading</a>&nbsp;&nbsp;&nbsp;
+<a href="#usrmsg">Host_error: UserMsg: Not Present on Client #</a>&nbsp;&nbsp;&nbsp;
+<a href="#unmatched">"unmatched key value"</a>&nbsp;&nbsp;&nbsp; 
+<a href="#unmatched">unmatched target field</a>&nbsp;&nbsp;&nbsp; 
+<a href="#vmod">Unknown Command: VMod Enable</a>&nbsp;&nbsp;&nbsp;
+<a href="#velocity">velocity too low on func_pushable</a>&nbsp;&nbsp;&nbsp;
+<a href="#entlim">Too many entity's in visible packet list</a>&nbsp;&nbsp;&nbsp;
+<a href="#vismatrix">Vismatrix too big</a>&nbsp;&nbsp;&nbsp;
+<a href="#manytext">My compiler asks for a wad I didn't use and don't have</a>&nbsp;&nbsp;&nbsp;
+<a href="#wav">WARNING!...runtime sample conversion</a>&nbsp;&nbsp;&nbsp; 
+<a href="#check">WARNING: Unable to load xxxxx\.wad</a>&nbsp;&nbsp;&nbsp;
+<a href="#wav">Warning: Unable to open sound/C for transfer</a>&nbsp;&nbsp;&nbsp;
+<a href="#check">W_GetLumpinfo: font0 not found</a>&nbsp;&nbsp;&nbsp;
+<a href="#wav">can't hear my wavs</a>&nbsp;&nbsp;&nbsp;
+<a href="#wrongversion">Mod_LoadBrushModel:maps/mapname.bsp has wrong version number</a>&nbsp;&nbsp;&nbsp;
+<a href="#wrongversion">Mod_LoadBrushModel: Sprites(lgtning.spr has wrong version number</a>&nbsp;&nbsp;&nbsp;
+<a href="#allocblock">z_malloc</a>&nbsp;&nbsp;&nbsp;
+</p><p>
+</p><hr>
+<center><b> by editors/authors</b><br>
+<a href="#tommy">partly edited &amp; partly authored by tommy</a>&nbsp;&nbsp;&nbsp; 
+<a href="#JCHQ">edited by JCHQ</a>&nbsp;&nbsp;&nbsp; 
+<a href="#zoner">authored by zoner</a>&nbsp;&nbsp;&nbsp; <p>
+</p><hr>
+<b>by types of problems</b>
+<table width="95%"><tbody><tr><td valign="top">
+
+<p>
+<b><i>light</i></b><br>
+<a href="#blackhand">black hand</a><br>
+<a href="#blackhand">couldnt`read texlights from lights.rad.</a><br>
+<a href="#flicker">entity flickering</a><br>
+<a href="#rad">HLRAD is SLOW/stuck on makescales</a><br>
+<a href="#flicker">Lightmap for Texture aaatrigger too large</a><br>
+<a href="#flicker">MAX_SWITCHED_LIGHTS</a><br>
+<a href="#logic">NON-Solid Set To Glow </a><br>
+<a href="#lightstyles">Warning: Too many direct light styles on a face</a><br>
+
+</p><p>
+<b><i>path/names</i></b><br>
+<a href="#badstring">Host_Error: Bad String</a><br>
+<a href="#badstring">Line 5197 is incomplete</a><br>
+<a href="#modnum">Mod-NumforName</a><br>
+<a href="#emptybox">ParseEntity: EOF without closing brace</a><br>
+<a href="#emptybox">Parsing Entity 0, expected '{' got '@RMF'</a><br>
+<a href="#rload">R_LoadSky: Couldn't load gfx/env/.....tga</a><br>
+<a href="#token">Token too large</a><br>
+
+</p><p>
+<b><i>sound</i></b><br>
+<a href="#wav">can't hear my wavs</a><br>
+<a href="#trainsound">can't hear my trainsound</a><br>
+<a href="#wav">com_loadfile: bad usehonk</a><br> 
+<a href="#vmod">emit_sound : pitch 346</a><br>
+<a href="#trainsound">Sentence or pitch shift ignored</a><br>
+<a href="#wav">sound overrun</a><br>
+<a href="#wav">sv_startsound: sound = 2550</a><br>
+<a href="#wav">S_Findname - out of sfx_t</a><br>
+<a href="#vmod">Unknown Command: VMod Enable</a><br>
+<a href="#wav">WARNING!...runtime sample conversion</a><br>
+<a href="#wav">Warning: Unable to open sound/C for transfer</a><br>
+
+</p><p>
+<b><i>VIS related</i></b><br>
+<a href="#vis">HLVIS is SLOW/stuck</a><br>
+<a href="#hint">How the heck do I use HINTs/How does VIS work</a><br>
+<a href="#leafsaw">Leaf portal saw into leaf</a><br>
+<a href="#leafsaw">FindTransferOffsetPatchnum...</a><br>
+<a href="#skywater">my SKY turns invisible when I am in a func_water</a><br>
+
+</p></td><td valign="top">
+<b><i>textures &amp; CSG</i></b><br>
+<a href="#decals">bad animating texture....</a><br>
+<a href="#badsurface">Bad Surface Extents</a><br>
+<a href="#vector">"CanonicalVector: Degenerate"</a><br>
+<a href="#invisi">cannot see my textures</a><br>
+<a href="#decals">decal will not work</a><br>
+<a href="#parsing">Error parsing brush</a><br>
+<a href="#malformed">host_error backward mins/maxs </a><br>
+<a href="#bigtexture">Larger than expected texture</a><br>
+<a href="#malformed">Malformed face normal</a><br>
+ <a href="#texturedef">missing [ in texturedef</a><br>
+<a href="#mixed">mixed face contents</a><br>
+<a href="#sprites">.....SKY brushes not allowed in entity</a><br>
+<a href="#check">textures are checkered or have dots</a><br>
+<a href="#linetex">my textures far off get lines in them</a><br>
+<a href="#invisi">textures xxxxxx is not 16 aligned</a><br>
+<a href="#bigtexture">texture axis perpendicular to face</a><br>
+<a href="#check">WARNING: Texture lump "xxxxxx" not found</a><br>
+<a href="#hammer">Textures overlap in WC/Hammer 3D view</a><br>
+<a href="#manytext">My compiler asks for a wad I didn't use and don't have</a><br>
+<a href="#check">WARNING: Unable to load xxxxx\.wad </a><br>
+<a href="#check">W_GetLumpinfo: font0 not found</a><br>
+
+<p>
+<b><i>brush</i></b><br>
+<a href="#coplane">brush with coplanar faces</a><br>
+<a href="#outside">brush 'outside world'</a><br>
+<a href="#origin">Clip brush...</a><br>
+<a href="#edge">Edge with both face id's already filled</a><br>
+<a href="#noent">Empty Entity, Solid Entity is Empty, or Entity has no brush</a><br>
+<a href="#modnum">green "flies" around a monster or player</a><br>
+<a href="#portalclip">MakeNodePortal:new portal was clipped away from node</a><br>
+<a href="#modnum">model has yellow/gold dots</a><br>
+<a href="#origin">origin brush...</a><br>
+<a href="#plane">plane with no normal</a><br>
+<a href="#malformed">SubdivideFace: didn't split the 4-sided polygon @(coordinates)</a><br>
+
+</p><p>
+</p></td></tr><tr><td valign="top">
+<b><i>memory</i></b><br>
+<a href="#allocblock">allocblock:full </a><br>
+<a href="#chop">ChopWinding:</a><br>
+<a href="#allocblock">D_SCAlloc: bad cache size 0</a><br>
+<a href="#entlim">Entity Limitation notes:</a><br>
+<a href="#precache">500 overflow temporary ents!</a><br>
+<a href="#precache">FSB_ALLOWOVERFLOW</a><br>
+<a href="#precache">HOST ERROR:....precache</a><br>
+<a href="#allocblock">Malloc Block: Full</a><br>
+<a href="#manytext">mip&gt;=loadmodel-&gt;numtextures</a><br>
+<a href="#maxlim"><b>general MAX_MAP limits</b></a><br>
+<a href="#clipnode">MAX_MAP_CLIPNODES</a><br>
+<a href="#leafface">Max_leaf_faces </a> <br>
+<a href="#miptex">MAX_MAP_MIPTEX</a><br>
+<a href="#models">MAX_MAP_MODELS</a><br>
+<a href="#numplanes">max_map_planes</a><br>
+<a href="#maxpatch">Exceeded MAX_PATCHES</a><br>
+<a href="#maxpoints">MAXPOINTS</a><br>
+<a href="#maxportal">MAX_PORTALS_ON_LEAF</a><br> 
+<a href="#chop">Max_tri_....</a><br>
+<a href="#lowmem">Memory allocation failure</a><br>
+<a href="#noedict">no free edicts</a><br>
+<a href="#noedict">node graph...</a><br>
+<a href="#noedict">NUM_FOR_EDICT: bad pointer</a><br>
+<a href="#numplanes">ReadSurfs (line 99416): 32189 &gt; g_numplanes</a><br>
+<a href="#miptex">ReadSurfs (line ReadSurfs: 990 &gt; numtexinfo</a><br>
+<a href="#leafface">short ### surfaces </a> <br>
+<a href="#leafface">short ### edges </a><br>
+<a href="#precache">SVC_BAD</a><br>
+<a href="#entlim">too many entities</a><br>
+<a href="#entlim">Too many entity's in visible packet list</a><br>
+<a href="#vismatrix">Vismatrix too big</a><br>
+<a href="#allocblock">z_malloc</a><br>
+
+</td><td valign="top">
+<b><i>misc and multisource problems</i></b><br>
+<a href="#infonodeblob">5 small blobs of white, yellow, brown, and red dots</a>
+<a href="#emptybox">The box is empty</a><br>
+<a href="#modnum">custom file has wrong number of lumps</a><br>
+<a href="#pts">...cannot find pts file</a><br>
+<a href="#nobsp">Host_Changelevel2: Couldn't load map....</a><br>
+<a href="#emptybox">Empty Map</a><br>
+<a href="#fileread">file read failure</a><br>
+<a href="#fileread">Floating point division by zero</a> <br>
+<a href="#hammer">Hammer Editor problems</a><br>
+<a href="#page">Illegal Page Fault</a><br>
+<a href="#invalid">Invalid Argument</a><br>
+<a href="#interval">Mod_LoadSpriteGroup: interval&lt;=0</a><br>
+<a href="#leak">leak leak leak</a><br>
+<a href="#portalfile">LoadPortals: ..... </a><br>
+<a href="#parsemark">Mod_parseMarksurfaces: bad surface number</a><br>
+<a href="#nobsp">Map not found on server</a><br>
+<a href="#noent">....No entities exist in hull #,....</a><br>
+<a href="#nohud">no HUD</a><br>
+<a href="#usrmsg">host error : PF_setview_1:not a client</a><br>
+<a href="#portalfile">Portal file xxxxxx does not exist</a><br>
+<a href="#logic">push button/trigger in game and get kicked out</a><br>
+<a href="#mixed">RankForContents: bad contents</a><br>
+<a href="#serialize">SerializeRMF()v2.2 tried to load a file v0.0 Aborting</a><br>
+<a href="#shutdown">ShutdownOpenGL-wglMakeCurrent failed</a><br>
+<a href="#unmatched">My SKY is flashing, distorted, or white</a><br>
+<a href="#spawnull">Spawned a NULL entity</a><br>
+<a href="#sprites">sprites problems</a><br>
+<a href="#recursive">sv_recursivehallcheck:bad node number</a><br>
+<a href="#skyboxing">on skyboxing</a><br>
+<a href="#swap">Warning: SwapTransfers: unmatched</a><br>
+<a href="#portalclip">SZ_Getspace Overflow on netchan</a><br>
+<a href="#nobsp">there is no bsp</a><br>
+<a href="#malformed">tiny penetration in Hull 4</a><br>
+<a href="#unmatched">"unmatched key value"</a><br>
+<a href="#unmatched">tracker UI not valid, not loading</a><br>
+<a href="#usrmsg">Host_error: UserMsg: Not Present on Client #</a><br>
+<a href="#unmatched">unmatched target field</a><br>
+<a href="#wrongversion">Mod_LoadBrushModel:maps/mapname.bsp has wrong version number</a><br>
+<a href="#wrongversion">Mod_LoadBrushModel: Sprites(lgtning.spr has wrong version number</a><br>
+<a href="#wrongversion">Could not validate Half-Life</a><br>
+ <a href="#velocity">velocity too low on func_pushable </a><br>
+
+</td></tr></tbody></table>
+</center>
+</td></tr></tbody></table><p>
+<comment>end menu goto</comment>
+
+<a name="odd"></a></p><h3>Odd errors that cause mysterious &amp; peculiar problems</h3>
+There are several problems which are not normally detected, and can show up as false warnings of 
+other problems.  
+<ul>
+<li>Most notable of these is the <i>"too many wads"</i> error.  If you have more than 8 wads in WC, 
+then weird problems CAN occur - but not always, and not for everyone.  Always check that you do not 
+have too many wads when your problem doesn't "fit" the solutions...<br>
+</li><li>Another odd problem that shows up elsewhere is the <a href="#rload">bad sky enviornment name</a>.   
+For most of us a bad sky enviornment name leaves us with the default enviornment.  But for some 
+mappers, this can cause odd error warnings: like a bad brush that does not exist, or brush outside 
+of map, or bad lighting in the map.  Make sure you get that name RIGHT!  If the six sides are sky_lf, 
+sky_rt, sky_up, etc. you use "sky_" in the cl_skyname field.<br>
+</li><li>A third odd problem is <i>too small textures</i>.  If one over stretches the texture more than 
+10x, then zoner's compile tools usually give a warning.  But there is little or no warning if you 
+shrank the texture too far.  When you get a frustating error that doesn't make sense, this one is 
+something to keep in mind. 
+</li><li>A rare fourth problem is a single HUGE .wad that is too big for memory.<br> 
+</li><li>If you have the a problem like malformed face and you do a check but do not get that error, but
+<a href="#solidentity">"Solid entity is empty"</a>, you may be a victim of the editor mixup.
+</li></ul>
+
+<p>
+</p><hr>
+<p>
+
+<a name="maxlim"></a></p><center><h2>general MAX_MAP limits from the old SDK</h2>
+<table bgcolor="silver" cellpadding="8" border="1"><tbody><tr><td>
+<a href="#leak" title="hull 0=what you SEE, the walls, the limits of the map.
+hull 1 = usually the clip hull for a standing player
+hull 2 = usually the clip hull for a crouching player
+hull 3 = is usually left for a mod, in NS for the Onos, in HLRally for the cars?
+if you have hull 4, see tiny penetration in hull 4 error.">MAX_MAP_HULLS</a> <br>
+<a href="#models" title="refers to brush entities, not models">MAX_MAP_MODELS</a><br>
+MAX_MAP_BRUSHES<br>
+<a href="#entlim" title="go for more info">MAX_MAP_ENTITIES</a><br>
+<a href="#entlim" title="go for more info">MAX_ENGINE_ENTITIES</a><br>
+<a title="how many char can be in your entity name
+and how many named entitys you can have.">MAX_MAP_ENTSTRING</a><br>
+<a href="#numplanes" title="there are some new compilers that vary the max for this,
+and some that remove some excess planes for you.">MAX_MAP_PLANES</a><br>
+MAX_MAP_NODES<br>
+<a href="#clipnode" title="there are some new compilers that vary the max for this,
+and some that remove some excess clipnodes for you.">MAX_MAP_CLIPNODES</a><br>
+MAX_MAP_LEAFS<br>
+MAX_MAP_VERTS<br>
+<a href="#leafface" title="this varies depending on compiler, 
+and perhaps also if you used NULL texture.">MAX_MAP_FACES</a><br>
+</td><td>
+4<br>
+400<br>
+4096/ 8192+<br>
+1024/ 2048<br>
+1024<br>
+(128*1024)<br>
+32767<br>
+32767<br>
+32767<br>
+8192<br>
+65535<br>
+65535<br>
+</td><td>
+MAX_MAP_MARKSURFACES <br>
+<u><a title="this is an EDITOR limit. compilers can handle much more.
+you will have to edit the .map directly with a word processor like Notepad to get around this.">
+MAX_MAP_TEXINFO</a></u>		<br>
+MAX_MAP_EDGES		<br>
+<a href="#leafface" title="go for more info">MAX_MAP_SURFEDGES</a><br>
+MAX_MAP_TEXTURES	<br>
+<a href="#miptex" title="depends on video and compiling tools.
+oldest limit = 2M, 
+zoners &amp; software mode = 4M
+use -texdate &amp; old voodoo card = ~8M
+modern stuff with -texdate can go higher.">MAX_MAP_MIPTEX</a><br>
+MAX_MAP_LIGHTING	<br>
+MAX_MAP_VISIBILITY	<br>
+MAX_MAP_PORTALS		<p>
+MAX_KEY		<br>
+MAX_VALUE	<br>
+</p></td><td>
+65535<br>
+8192<br>
+256000<br>
+512000<br>
+512<br>
+varies, see link<br>
+0x200000<br>
+0x200000<br>
+65536<p>
+32<br>
+1024<br>
+</p></td></tr></tbody></table>
+Zoner's, Merle's &amp; Cagey's Compiling tools may have some higher 
+limits, such as 8192+ MAX_MAP_BRUSHES or 2048 for MAX_MAP_ENTITIES.<br>
+Furthermore, some Mods have lower limits.  Find the Mod's coder and ask if you think so.<br>
+<i>see also: <a href="#entlim">Entity Limitation notes:</a></i>
+</center>
+<p>
+</p><hr>
+<p>
+<comment>begin my error list</comment>
+<table bgcolor="white" cellpadding="8" border="1"><tbody><tr><td>
+<a name="tommy"></a>
+<h1>errors &amp; solutions assembled by Tommy from many sources</h1>
+<p>
+
+<a name="hammer"></a></p><h2>Hammer Editor problems</h2>
+The new Hammer editor/WC 3.4 is a bit buggy and glitchy.  It especially 
+seems to have problems with Geoforce Video cards, WinXP, and Voodoo 
+Video cards.  <b>Possible solutions</b>: Right now, there are three known solutions that may or may not work for you: <br>
+<ul>
+<li>Using <a href="http://www.compsoc.man.ac.uk/~afoster/sgi-opengl.zip">SGI's OpenGL driver</a>
+ (438,888 bytes) instead of your video card's native OpenGL drivers.  
+Extract the file named opengl32.dll to your WorldCraft/Hammer directory.<br>
+</li><li>Upgrading your video drivers to the latest version.  Check out: <a href="http://nvidia.com/view.asp?PAGE=windows2000">nVidia's driver page</a>.<br>
+</li><li>Downgrading your video drivers to a prior version, the most recent driver may not be as stable as older versions.<br>  
+</li></ul>
+There may also be problems converting your old WC 3.3 maps to 
+Hammer/WC3.4, the best solution for this is to open your old level in WC
+ 3.3, copy EVERYTHING, then open Hammer, start a new map and paste it 
+all in.<br>
+There have also been problems with longer map names in Hammer, 
+especially with compiling.  Like WC, you should compile outside of 
+Hammer with a batch file or front end.  And there are more minor 
+problems.<br>
+If you have problems with Hammer forgetting your settings so you have to
+ set it up every time, this happens to some CPUs.  The version of Windoz
+ you are using may be causing it (esp. WIN ME), or something else.  The 
+fixes I have heard of are:
+<ul>
+<li>Using an older version or different of Windoz.
+</li><li>Try to always use a User Profile.
+</li><li>Make changes to the .wad files installed, then save.
+</li><li>Change the save maps folder to a sub folder deeper down.
+</li><li>try to configure [Worldcraft] and then create and save any map, even a single wall will do, you can 
+exit the program and load again and your configuration files will load. If they don't however you 
+can do the process again and it normally works the second time - sometimes. 
+</li><li>Open the My Computer folder and press F3 to open the search window. Search for files named *.wc. 
+If you find them outside of your Worldcraft/Hammer folder, move them into your Worldcraft/Hammer folder. 
+(Do this while Worldcraft/Hammer is not running) Things should work properly after doing this.....maybe.
+</li><li>installing Worldcraft/Hammer into a path with no spaces (ie: C:\Worldcraft) 
+</li><li>Moving everything to the default setup in <b>c:/prog**/valve h***</b> which has spaces...conflicts with the one above.
+</li><li><a title="Autolycus from the VERC caught this one.">In one case where WC/hammer would not 
+reinstall right, it was found you had to hand remove from the
+registry <b>HKEY_CURRENT_USER\Software\Valve\Hammer</b> before reinstalling.</a>
+</li></ul>
+good luck.
+<p>
+
+</p><h2>Textures overlap in WC/Hammer editor 3D veiw</h2>
+If you have this problem in WC/Hammer, the only known solutions are to 
+change your display size or to reduce your .wad files in WC to 1 or 2. 
+(the problem seems to start with 3 wads or more.)
+<p>
+</p><hr>
+
+<a name="malformed"></a><h2>Malformed face normal</h2>
+Description: The texture alignment of a visible face is unusable <br>
+Howto Fix: If using Worldcraft, do a check for map problems and fix any occurences of <a href="#bigtexture">'Texture axis perpindicular to face'</a>.  Coordinates are usually given, use them if map problems cannot find the problem brush.<p>
+
+</p><h2>SubdivideFace: didn't split the 4-sided polygon @(coordinates)</h2>
+In the only case I know of this, it was the walls surrounding a level map.  I have no idea of the cause yet of this BSP error.
+
+<h2>host_error backward mins/maxs</h2>
+"It means that the mins and maxs ( the bounding box ) for the sequence 
+is "reversed" (one of the mins is bigger than the maxs). This happens 
+when anything calls SET_SIZE with bad extents. If you compiling your own
+ code, you can wrap the setsize() calls and check it yourself, but 
+that's probably not a simple answer."<br>
+Translation: Do you have any special models or prefabs? they may have been screwed up, or you somehow 
+turned a brush inside out, no idea how that could have happened - but some entitys like <i>platforms</i>
+ seem 
+prone to this. You can also look for a brush with bad extents, or check 
+the texture, is it divisible by 16 on the edges EXACTLY? Finally, are 
+you using the most 
+modern version of zoners tools? Old versions or ancient qtools are more 
+prone to this error.<p>
+
+</p><h2>"tiny penetration in Hull 4"</h2>
+In the cases I know of this, it was caused by using the -verbose switch 
+to try to find an error while compiling.  The warning was ignored 
+without any problems then.  I hope you too can ignore it without further
+ problems. I have no idea of the cause yet of this BSP error.
+
+<a name="recursive"></a><h2>sv_recursivehall(hull?)check:bad node number</h2>
+Bad brush work, overlapping brushes, these will result in bad clipnodes or leafnodes and cause this
+rare problem.  It seems to depend on compiler sensitivity also.<p>
+
+<a name="leafface"></a></p><h2>Max_leaf_faces </h2>
+You have gone over a limit similar to <a href="#maxpatch">max patches</a> error, but by BSP creating 
+too many leaf faces for VIS to handle - probably due to "shattering" of a brush.  Did you carve a 
+complex brush (like a cylinder) or intersect it with another brush?<p> 
+
+</p><h2>short ### surfaces</h2>
+Similar to <a href="#leafface">max leaf faces</a>error or <a href="#numplanes">ReadSurfs (line xxxxx): 32189 &gt; g_numplanes</a> error, in this one you are running out of face planes for the map.  The one occasion I read of this, it was caused by a <a href="#leak">leak</a>
+ while running in software mode, although it may also be caused by over 
+shrunk textures forcing too much tiling and making r_speeds of wpolys 
+&gt; 800.
+<i>(Leaks keep the outside of a level map, so there are more surfaces the engine sees.  However, 
+this is NOT only a leak error, it is a too many surfaces error and can be caused by other things!)
+<br>
+see also: <a href="#skyboxing">skyboxing</a></i>.
+<p> 
+
+</p><h2>short ### edges </h2>
+Like <a href="#maxpoints">maxpoints</a> error, in this one you are 
+running out of edges.  This is probably caused by running in software 
+mode and having bad r_speeds with wpoly counts higher than 800....and 
+maybe by making complex brushes like cylinders intersecting and causing 
+shattering.
+<p>
+
+<a name="parsemark"></a></p><h2>Mod_parseMarksurfaces: bad surface number</h2>
+Cause &amp; solution as yet unknown to me.  Seems to happen when 2 maps/prefabs are joined into a map.
+<p>
+
+<a name="chop"></a></p><h2>MAX_TRI_TRIS &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; MAX_TRI_POINTS  &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; MAX_TRI_EDGES</h2>
+An old RAD error code in outdated zoner's versions.  Solution, get a newer version.<p>
+
+</p><h2>Warning: ChopWinding: Rejected(1) due to too many points</h2>
+<blockquote>Merle says, "A winding is a data structure used in the compile tools to store a set of points. As 
+they are very versatile, they can be used to describe a number of things (<i>surfaces, brush faces, 
+brush sides, whole brushes, etc...</i>). Your Warning (<i>note: which is not an Error</i>.) message is simply 
+alerting you to the fact that one of these winding data structures has a larger number of points than 
+expected, and one of the points was ignored.<br> 
+"It is hard to guess what casues this as most of the typical causes (<i>eg. brush sides with large 
+numbers of vertexes</i>) should be really caught earlier on in the process. Hence, it is most probably 
+the artifact of some subdivision or modification of the points of the map itself during the compile, 
+which makes it even harder to track down. <br>
+"I recommend using the 'Big Block' method of trying to isolate a particular area of your map that 
+causes it, and to modify/simplify/change the general brush geometry. This is a very generic fix, 
+but its also a very generic message."</blockquote><p>
+
+<a name="shutdown"></a></p><h2>ShutdownOpenGL-wglMakeCurrent failed</h2>
+This is a bug in the new WC 3.4/Hammer editor.  It seems safe to ignore....or you could make sure you
+have the latest OpenGL drivers for your video card.  
+
+<a name="spawnull"></a><h2>Spawned a NULL entity</h2>
+You did some setting wrong with a monstermaker entity somehow.<p>
+
+<a name="emptybox"></a></p><h2>The box is empty</h2>
+A WorldCraft error - You are trying to make a flat box/level. Won't work, it has to be at least 1*1*1 unit big. <p>
+
+</p><h2>Empty Map</h2>
+You forgot to give the compiler the name of the level you mapped, or you haven't made the level yet!  
+You can't compile nothing!  Sometimes this is a mis-error, and something else is the problem.<p>
+
+</p><h2>Parsing Entity 0, expected '{' got '@RMF'</h2>
+<a title="thanks rsearle &amp; ninjagrinch">You are trying to compile a .rmf file, instead of the .map 
+file. These are different file formats, even if they deal with the same levelmap you are making.  
+Make sure you export your level to .map and then use the c:/path..../mapname.map with the compile tools!</a> <p>
+
+</p><h2>Error: ParseEntity: EOF without closing brace</h2>
+WorldCraft is having difficulty exporting your .map version, somehow the
+ end got chopped off.  Means you've hit the end of the file and were 
+missing a close brace "}". Its posible that the exporting procedure 
+ended before it was done or you included quotations or other braces in 
+entity string value names (bad idea).  fixes: <br>
+1. try again to export your level from WC/hammer into .map format. and retry compile. <br>
+2. check in your level for entitys with "" or {} in the path/names.<br> 
+3.open .map version with wordpad, go to end, add a bunch of closeing braces }}}}}
+then try recompiling again. <p>
+
+<a name="badstring"></a></p><h2>Host_Error: Bad String</h2>
+This rare error only happens in game/server mode when sprites, models, 
+sounds, or text strings (but not all strings!) are initialized and 
+precached. If the string/name for the sprite, model, sound, or 
+miscellaneous text string either starts with a non-printable ASCII 
+character, or is 0 length (ie: starts with a non-printable null ASCII 
+character), then the error will occur.<br>
+Solution: search thru entities like env_glow, env_sprite, 
+ambient_generic, env_shooter, etc. - anything the engine has to precache
+ a file for the bad name.<p>
+
+</p><h2>Line 5197 is incomplete (did you place a " inside an entity string?)</h2>
+This means that you have placed an invalid character (",'%, etc) in an 
+enitity property/name. This can also mean that you have untextured faces
+ in your map(areas with a white appearance as a texture.) <p>
+Fix any "invalid texture" errors that show up in the "Check for problems" app. </p><p>
+
+<a name="unmatched"></a></p><h2>"unmatched target field (start_apc0)" </h2>
+Somewhere in one of your entitys there is a named target which does not 
+exist, for example (start_apc0).   Possibly you misspelled the entity 
+targetted, or the entity was removed at some point.  You will probably 
+have to go through ALL of your entitys to find it - most tedious - in 
+WC/hammer use the entity report to make it faster. 
+
+<h2>"unmatched key value"</h2>
+You get that error when you personally type a key into an entity (with 
+Smartedit off), and then WC can't find that key in the FGD file. If you 
+know that you typed the key right and it works, the error is nothing to 
+be conserned about. However, double check.<p>
+
+</p><h2>My SKY is flashing, distorted or white</h2>
+This is an error that came with the HL 1009 update in Spring 2002.  The problem is the update no longer reads the
+Valve pak0pak.pak file for the default SKY enviornment TGAs.<br>
+The solution is to get <b>pakexplorer</b> prgm and open the valve 
+pak0pak.pak, then unpak the gfx/env folders and place them under valve 
+as valve/gfx/env....with all the missing TGS files that go with those 
+folders.<p>
+
+</p><h2>tracker UI not valid, not loading</h2>
+This is an error in half life patch 1110. Annoying but nothing to be 
+concerned about. IF you want to aviod it, just go into 
+Half-Life/valve/cl_dlls folder and change GameUI.dll to GameUI.bak.<p>
+
+<a name="nobsp"></a></p><h2>there is no bsp/Map not found on server</h2>
+Lots of possible causes for this, here are some of the most common:
+<ol>
+<li>This means you probably failed a compile, or you never compiled.  You must compile your level to make the .bsp map!  
+</li><li>If you did try to compile, go to your /maps folder and look at 
+your .log for the compile with a text editor.  You will probably find 
+one (or more) of the other errors listed on this page.
+</li><li>If you had no errors, did you copy the .bsp from your WC/maps folder into your mods map folder?
+</li><li>It could be something else like a <a href="#odd">bad sky enviornment name</a>, or 
+</li><li>making the SKY into an entity, or 
+</li><li>using the wrong fgd file to make your level, or 
+</li><li>You probably set the configurations of directories wrong, or 
+ect. in worldcraft/hammer. Best thing to do is to have worldcraft/hammer
+ not run the map after compile, and just run the game yourself, and play
+ the map on LAN.
+</li><li>If you typed in "map mapname" (where mapname is the name of 
+your map without .bsp) in the console and didnt run it from 
+worldcraft/hammer, just try typing it again, without quotes, and include
+ the .bsp at the end. If that doesnt work, disclude the .bsp just to try
+ again.
+</li><li>If the mod for a multiplayer cannot find your map, perhaps you 
+forgot to put in a player deathmatch, a player_start, or your mod 
+equivalent?
+</li><li>Also newer patches of HL require for HDTV the following entitys, depending on your mod: <i>Info_player_start, Info_player_observer</i>.
+</li><li>STEAM is one of our newest causes for this problem.  Make sure you have everything set up right for mapping with STEAM.
+</li></ol>
+<p>
+
+</p><h2>Host_Changelevel2: Couldn't load map....</h2>
+Usually for single player mods/maps, for some vague reason if you have connected maps, your second one 
+(or other) would not load.  Check:
+<ul>
+<li>the info_landmark entity.
+</li><li>can you load your second map through the console?
+</li><li>is your map in the right folder? 
+</li><li>did you load the first map through the console?
+</li><li>the map naming conventions.
+</li><li>player starts.
+</li><li>anything else you can think of.
+</li></ul>
+<p>
+
+<a name="portalclip"></a></p><h2>MakeNodePortal:new portal was clipped away from node@(coordinates)</h2>
+This indicates an invalid solid of some kind. You will need to find the 
+brush at the coordinates listed and delete/recreate it.  Usually this 
+vague problem only happens in the older Q compiling tools, if you 
+install and use the newer  versions of Zoner's Compiling tools the 
+problem will go away, or be given a more specific named error.  However 
+sometimes even in zoner's this shows up, due to <a href="#malformed">Malformed face normal</a>.<br>
+
+<h2>SZ_Getspace Overflow on netchan</h2>
+A bad vague one - some server error caused by a bad map.  In one situation of this I know of, it was solved by 
+copy/pasting the ENTIRE level over into another .rmf file; when another time it occured it was solved
+by reducing the number of doors that used the same sound.  In a third it seems it was caused by too many
+player start entities?, and in a fourth by a bad .wav file.  But really I don't know if this was really caused by 
+the WAVs, or by bad brushes, ghost entitys, or what.  good luck figuring it out!<p>
+
+<a name="portalfile"></a></p><h2>"Portal file xxxxxx does not exist...."</h2>
+This can be a tough one.  If the error causing it is clearly named in the .log of the compile with 
+coordinates, then it is easy to fix.  However, if the error is not showing up, it is time to go 
+hunting.  You could look at <a href="#token">Token too large</a> or some of the other errors.  Check 
+your <a href="#odd">Sky environment name, Wad count, ect</a>.  You may even try reinstalling a new 
+copy of the compile tools in case they got corrupted, it has happened!<p>
+
+</p><h2>"LoadPortals: failed to read header" &nbsp;&nbsp;&nbsp; <i>or</i>
+  &nbsp;&nbsp;&nbsp; LoadPortals: couldn't read.... &nbsp;&nbsp;&nbsp; <i>or</i>
+  &nbsp;&nbsp;&nbsp; LoadPortals: not a portal file &nbsp;&nbsp;&nbsp; <i>or</i>
+  &nbsp;&nbsp;&nbsp; LoadPortals: reading portal.... &nbsp;&nbsp;&nbsp; <i>or</i>
+  &nbsp;&nbsp;&nbsp;LoadPortals: portal.... has too many points </h2>
+This can happen in compile: an error occured while loading the xxxxx.prt
+ file. It could be corrupted, missing (if you have a leak), or your map 
+is too complex for bsp to generate a valid .prt file. Somehow the portal
+ file made by the other previous compiling programs got messed up, or 
+the reading program is messed up.   Usually a Qtools problem, rare on 
+Zoner's compile tools, but most often happens between BSP and VIS.
+
+<a name="pts"></a><h2>"cannot find pts file"</h2>
+xxxx.pt# and xxxx.pts are files made in compiling by the compiling tools. Usually when you get 
+"can't find .pts" it means something went wrong with compile. It could be a bad setup you made for 
+the compile, or you're Running WC/hammer thru normal instead of expert, or having <a href="#odd">"too 
+many wads"</a>, or corrupted compiling tools (rare but happens), a <a href="#token">bad path/name</a> 
+somewhere, or several others. The solution is generally to use a front end or batch file with zoner's 
+compile tools, then the problem usually goes away or the compiling error becomes clear.<p>
+
+<a name="interval"></a></p><h2>Mod_LoadSpriteGroup: interval&lt;=0</h2>
+Uncertain: When HL engine was loading sprites into its game cache something went wrong. 
+This may mean a corrupt pak file, or a memory problem like 
+<a href="#precache">precache</a>, or a weird one like 
+<a href="#wrongversion">Mod_LoadBrushModel:maps/<mapname.bsp>has wrong version number</mapname.bsp></a>.
+
+<a name="wrongversion"></a><h2>"Mod_LoadBrushModel:maps/mapname.bsp has wrong version number [571084155 should be 30]" &nbsp;&nbsp;&nbsp; <i>or</i>
+  &nbsp;&nbsp;&nbsp; Mod_LoadBrushModel: Sprites(lgtning.spr has wrong version number (0 should be 30)</h2>
+Here are a few of the problems that popped up under this situation:<br>
+<ol>
+<li>You may have errors in your compile, if not then,
+</li><li>Your pak0pak.pak file may be corrupted?
+</li><li>Maybe the wrong game version? 
+</li><li>Wrong WC/Hammer version?  Earlier versions of WC were particularly prone to this.  Use WC 3.3 or Hammer!
+</li><li>Maybe another compile will make it go away, or not?  And make 
+sure you have the most up-to-date version of zoner's compiling tools....
+</li><li>You may have a bad model - like one from another mod or game, 
+or you once installed a custom one?  Or you may have a corrupted sprite 
+or model?
+</li><li>Have you installed a patch recently?  It might be bad....
+</li></ol>
+
+<h2>"Could not validate Half-Life"</h2>
+A similar problem to wrong version above.  Solutions are:
+<ol>
+<li>reinstall Half-Life and the update patches for HL and the mod.(this 
+is usually the fix).  But before you do that do a virus scan and a 
+diskcheck/check for back blocks on the harddrive.
+</li><li>reinstall WorldCraft sometimes fixes it.
+</li><li>otherwise look above to <a href="#wrongversion">wrong version</a>.
+</li></ol>
+
+<a name="serialize"></a><h2>SerializeRMF()v2.2 tried to load a file v0.0 Aborting</h2>
+This World Craft/Hammer editor error means you are mix matching prefabs and maps made in different 
+versions of WC/Hammer.  Sometimes this is bogus, and then it means the level has been corrupted, 
+or WC/Hammer has been corrupted.  See also <a href="#texturedef">missing [ in texturedef</a>.<p>
+
+<a name="velocity"></a></p><h2>velocity too low on func_pushable </h2>
+This means that this func_pushable(s) is\are falling infinitely through space. This can occur when you 
+place the func_pushable sumberged in water, place it on an unclipped skybrush or somehow shoot an 
+entity or model at\through a skybrush. <p>
+
+<a name="blackhand"></a></p><h2>black hand &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; my player/weapon model is black</h2>
+This is a lighting error, the SKY looks lit, but the map, especially the players weapons are dark.  
+Causes are:<ul>
+<li>floor is func_walled or player is clipped way above floor somehow(elevator?), 
+</li><li>bad light enviornment settings (the PITCH should be negative "-" to shine DOWN), 
+</li><li>SKY walls on the side of a level are too low on the horizon,
+</li><li>with a spotlight, the "pitch yaw roll" value isnt the same as the "angle" and "pitch", 
+</li><li>other.
+</li></ul>  
+<i>Models take their brightness &amp; color value from the brightness &amp; color of the floor below them, 
+so if the floor is dark, far way, or black color, any model above it will be black too. Having them on a 
+bright brush entity doesn't count.</i><p>
+
+</p><h2>"couldnt`read texlights from lights.rad. &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; 
+bad texlight. &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; 0 textures parsed from lights.rad" </h2>
+This means your lights.rad is corrupted/screwed up.  Open lights.rad up 
+with Wordpad and fix it.  If you do not know how, open Valve.rad and 
+copy paste into lights.rad.
+
+<a name="flicker"></a><h2>entity flickering &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; 
+entity is changing from fullbright to dark and back</h2>
+<a title="thanks afa_scourge">One at least one occasion, an elevator, this was caused by the brush 
+entity only being lit by RAD bounce.</a>
+Try adding a direct light or a texture light to directly light the entity.<p>
+
+</p><h2>Exceeded MAX_SWITCHED_LIGHTS</h2>
+<a title="thanks Barney Smaasten &amp; sniperwolf">This new compiler error has appeared with hlcsg v2.5.3 rel Custom Build 1.7 - I do not know the exact limits
+yet.  Self explained, you have too many switchable lights, perhaps from using switchable
+texture lights?</a><p>
+
+</p><h2>Lightmap for Texture aaatrigger too large [11x32=352 luxels]; cannot exceed 324. </h2>
+<a title="thanks Mantis85 &amp; XP-Cagey">Most probably your .rmf, your .map or .bsp has been corrupted 
+in some way.</a>  
+<a title="Some info by XP-cagey:
+The compile tools are supposed to consider the aaatrigger texture as SPECIAL -- this changes the compiler behavior for aaatrigger faces at several points: 
+1. aaatrigger is not subdivided up into 240x240 texture unit sized faces for texture display.
+2. aaatrigger doesn't have any light patches created by the compiler for lighting calculations.
+3. aaatrigger is allowed to have face extents greater than 16 units in any direction.
+4. aaatrigger is not lit by the tools (it and other special textures are skipped by BuildFaceLights(), PrecompLightmapOffsets(), FinalLightFace(), in HLRAD).">
+<u>AAAtrigger textures are treated special</u></a>, and should have a special lightstyle of 
+255, which means 
+<a title="more XP-cagey info:
+(in the case of liquid textures, style 255 causes them to be displayed as fullbright).">
+"<u>no light data</u>" = RAD is supposed to ignore them.</a>
+<a title="thanks XP-Cagey">If AAAtrigger is going through RAD, something is wrong, most probably corruption.
+<i>(BTW: a luxel is short for "luminosity pixel" -- it's a fancier name for a light sample.)</i>
+</a><p>
+
+<a name="lightstyles"></a></p><h2>Warning: Too many direct light styles on a face(coordinates given)</h2>
+<i>(revised)</i>  <a title="thanks XP-Cagey, Merle and Autolycus">You have too many different kinds of 
+light shining on a face(patch) of a brush: either differently named switchable lights, or flickering 
+or strobing lights, or lights with a custom appearance.  You need to remove some of these lights in 
+the problem area (probably where you have the most such lighting), or combine the lights' properties 
+into the same style.  You <b>can</b> have more than one light shine in an area, but 3 styles maximum; 
+but the lights should be the same light type/custom appearance/name(if any) if possible.  The new 
+switchable texture lights count as one dynamic style if they are all the same type/custom 
+appearance/name.<br> 
+I am not certain about the new shadow coloring control, but I do not think that applies to the 
+dynamic, just to the static background.<br>
+<i>(Each face wpoly/patch can have shining on it max 4 light styles: 3 switchable/dynamic light 
+styles, and 1 reserved style for the static/unchanging lightmap.  The reserved is the background 
+lightmap - all the normal texture lights, light env, and lights that are unnamed and normal mode - 
+no matter what the color or brightness.  The dynamic lights can be single lights or a group, as 
+long as they have the same light type, same custom appearance, and the same name.  You can have 
+3 sets of dynamic - eg. if the lights have the same name, but 2 different light types (eg. normal 
+and flickering) and one custom appearance then they make 3 dynamic styles.)</i></a><br>
+choice to fix:<br>
+1. remove a bunch of lights in the area, named or lights with different types/appearance.<br>
+2. change more lights to the same type - type by light properties - or same names - or same custom appearance.<br>
+3. <i>(<a title="thanks Cagey!
+HLRAD's qrad.cpp:
+CODE  
+#ifdef ZHLT_TEXLIGHT        
+ //LRC:
+ if (*(s = ValueForKey(ent, style)))
+ {
+  style = atoi(s);
+  if (style &lt; 0)
+   style = -style;
+ }
+ else
+ {
+  style = 0;
+ }
+       //LRC (ends)
+#endif 
+">Recent info from Cagey about how the RAD code works revealed that the older compilers look at 
+EVERY entity with a Style property and counts it in as a light style! This includes entities such 
+as buttons that do not give off light!</a>)<br></i>
+So also go thru your entitys with Smartedit off an remove Style stuff, or open up your .map of your 
+level with an editor like notepad and remove the Style values from entitys like buttons that do not 
+give off light really....<br>
+4. <i>RAD -coring 0.2</i>  is used in some compiles with switchable lights to make light travel 
+further before the cutoff, which make the switchable light look better - but it may also cause more 
+styles to hit a particular face.  If you are using the coring parameter with RAD, consider removing 
+it from the compile.<br>
+<p>
+
+</p><hr><center><a href="#top">Back to top of  page</a></center><hr>
+
+<a name="decals"></a><h2>Decal will not work</h2>
+Decals from decal.wad are tricky.  They should be in the decals.wad file in the right B&amp;W format.  
+But if the server
+has decals turned off, or your setup has decals off - then they will not show up.  Also some vid cards 
+have caused problems with decals.  Also do not try to use regular .wad textures as decals, use the
+textures from decals.wad, or make your own decals in the decal.wad with wally.<br>
+Decals are re-sized according to the texture they are on top of.<p>
+
+</p><h2>"bad animating texture (texture name)"</h2>
+Animated textures names start off with a +0 and go to +9.  If there is a
+ gap in the sequence (like +2xxxx followed by +5xxxx) or if some other 
+character is used with the "+" (like +olab1_gun1or - "o" is not a 
+number.) then you may get this error.  Also a texture with a bad name of
+ the random beginning "-" can cause this error, even though it is not 
+animating.  Sometimes it is bogus, caused by a corrupt save/export, or 
+by that old <a href="#odd">"too many wads"</a> mistake.<p>
+
+<a name="bigtexture"></a></p><h2>Larger than expected texture</h2>
+This is a warning, and only a warning, that you are using a larger sized texture in your level than 
+some older video cards can handle.  It is <b>not a compile error</b>, but it may cause player clients 
+to sieze up if they
+have an older video card, or are in Software Video Mode.  You must decide if you are going to abandon 
+those players, or use another texture.  See also <a href="#check">Checkered textures</a>.<p>
+
+</p><h2>'texture axis perpendicular to face'</h2>
+For some reason a texture has been rotated on the face of a brush until it is "stick out of" the brush 
+face.  Causes are usually, but not always: vertex manipulation, clipping the brush, carving the brush, 
+importing a prefab, and sometimes rotating/skewing a brush with more than 6 sides - like a cylinder - 
+without texture lock(tl) on.  You could try map problems to see if it finds the error - sometime it 
+does, but more usually you have to hunt.<p>
+
+<a name="manytext"></a></p><h2>"mip&gt;=loadmodel-&gt;numtextures"</h2>
+Too many textures used, keep the number below 100.  However here is a different point of view, a quote from <b>Jay, VALVE programmer</b>:<br>
+<blockquote> <i>This is a check on the validity of the BSP file. If this
+ happens, it means that some texinfo is referencing a texture map (by 
+index) that isn't in the BSP file. This shouldn't happen under any 
+normal circumstances. Maybe the build failed and you have a partial/bad 
+BSP?<br>
+ It should be easy enough to debug if you have a map that produces the 
+error. Also, the buffer for loading textures is a little larger than 
+340K (256K + 64K + 16K + 4K) because it assumes 4 mip levels are present
+ and the max mip level is no larger than 512x512. This is kind of a 
+silly limitation now, but it's a real one in goldsrc. However, looking 
+at the warnings for large textures, none of them is actually over 340K 
+so this isn't a problem (if that data is correct and complete). bspinfo 
+may shed some light as well, but I don't recall if it prints out the 
+texdata entry count - it may only print the lump size.
+</i></blockquote><p>
+
+</p><h2>My compiler askes for a wad I didn't use and don't have</h2>
+<i>First, I hope you check the spelling of the .wads you entered into the map editor.  Obvious, but never hurts to check.</i><br>
+This usually happens because of the <a href="#odd">Too many Wads</a> problem.  Remove any wads from WC/hammer you did not use in your level.  Try to keep 
+the maximum number of wads installed in WC/hammer 8 or less.<br>
+Another solution that sometimes works is to make an empty wad, a wad 
+with all the textures removed, and install it as the LAST one in 
+WC/hammer - this especially seems to help Hammer map editor.<p>
+
+<a name="invisi"></a></p><h2>I cannot see my textures</h2>
+Check, if it is for textures in WC, did you put the texture into a wad 
+of the right format (HL) and install it in WC?  If it is for far away 
+textures in the game, did you set the map's max view distance too low?  
+Are you in software mode with more than 800 wpolys in the area?  Or do 
+you have too thin brushes or overlapping brushes?  Do you have <a href="#odd">too many wads</a>
+ in WC/Hammer - 8 is the limit?  Did you remove the wad from WC/Hammer 
+that the texture is in?  Was the texture was over streched or over 
+shrunk, or adjusted to nothingness.  If your custom textures are black 
+in the game, did you REMIP them in Wally? <p>
+If it is an invisible texture/{transparent check all of these:
+</p><ol>
+<li>Does the name of the texture start with the { character?
+</li><li>Is the blue 0 0 255 color?  Is it the ONLY blue?  (Wally likes to make extras.)
+</li><li>Is the blue in pallette position #255? (Wally likes to move it around.)
+</li><li>Is the func_illusionary set to solid mode, fx to 255?
+</li><li>Again, did you REMIP in Wally?
+</li><li>Are you in software mode?  Occasionally it can't see through the "clear" portions of textures.
+</li><li>Finally, is there fog in the game? - that might mess things up...
+</li></ol>
+
+<h2>"textures xxxxxxx is not 16 aligned"</h2>
+All textures have to have edge dimensions divisble by 16.  Check the texture 
+with Wally to see if the sides are a multiple of 16 - if not resize the texture or clip it to size - 
+or just don't use it! <br>
+<i>Note: 16, 32, 64, 128, &amp; 256 are the BEST dimensions to use! Other dimensions like 48 or 
+96 are legal, but due to engine texture resizing manipulation they will not look as good as 
+"the powers of 2" edges would.</i>
+<p>
+
+<a name="linetex"></a></p><h2>my textures far off get lines in them</h2>
+This can happen because a custom texture has not been properly remipped when made in Wally, or it could happen
+due to z-fighting.<br>
+Basically, z-fighting is due to limitations in the floating point precision calculations which your 
+graphics card is 
+processing, objects far away tend to fight over who has presidence to the player's view.<br>  
+Put in simpler terms, if you have, for example, a poster 2 units thick on a wall and walk away from 
+it, sooner or later the card's calculations will become less accurate, and will not be able to 
+properly determine which is in front - the power, or the wall behind it.<br>  
+So you have to be careful when putting thin entity brushes next to regular brushes.  
+Making a space in the brush behind the thin one can help reduce the problem.  Also read Checkers below.<p>
+
+<a name="check"></a></p><h2>my textures are checkered or have dots</h2>
+This is often a sign of bad junctions in mapping.  Checkers comes most often from overlapping brushes.  
+Dots usually come from bad joints, which come from vertex manipulation or clipping, or come from the 
+translation errors from WC/Hammer .rmf format to .map format.  Sometimes these problems also come from 
+too thin brushes. Occasionally checking happens because an old video card gets textures which are too 
+big (over 256x256), or because the player is in software mode and there are too many wpolys seen. (800 
+wpoly limit in software mode.) One more thing that can cause this is for the compiled level to ask for a texture which is not
+in the loaded .wad anymore - maybe you removed the .wad from the editor, or switched in an other .wad
+that is named the same but doesn't have the texture you were using?
+<br>  Some solutions are: to fix the brush, to check the .map version to see 
+if it is a translation error, to overlay the dots with another brush of same texture, to use smaller 
+textures, to have less wpolys/brushes in the area, and to double check that the texture is in the
+.wads you are using. <p>
+
+</p><h2>WARNING: Texture lump "xxxxxx" not found </h2>
+This usually means that you changed the wads installed in WC/Hammer or their locations after 
+beginning the level.  Go back and make sure the WAD carrying the texture is still in WC/Hammer when 
+you compile, or when you remove the brush the texture was on.  Also make sure you aren't running 
+an -onlyents compile by mistake.  But it could also be the <a href="#manytext">too many textures</a> 
+problem or it could be that old <a href="#odd">"too many wads"</a> mistake.<p>
+
+</p><h2>W_GetLumpinfo: font0 not found</h2>
+Did you move or delete the fonts.wad file from where the game needs it? 
+ This fonts.wad file is needed
+by the game engine, and should not be deleted or moved - and along with 
+gfx.wad &amp; cached.wad, they also should not be installed into
+the map editor either, since you cannot use the "textures" in mapping; 
+gfx, cached &amp; fonts.wad will just 
+cause a problem later when you compile.  Just leave them alone in the 
+folder.<p>
+
+</p><h2>WARNING: Unable to load xxxxx\.wad </h2>
+You probably did not put the path/name of the wad correctly in WC/Hammer setup, or you moved/deleted 
+the wad since you set WC/Hammer up.  It could also be you tried to load an illegal .wad into the
+editor for the map - see <i>W_GetLumpinfo: font0 not found</i> above.
+But it could also be the that old <a href="#odd">"too many wads"</a> mistake, or a bad brush - 
+also bad texturing has set this one off.<p>
+
+<a name="wav"></a></p><h2>I cannot hear my wavs &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; 
+Warning: Unable to open sound/C for transfer &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp;
+ com_loadfile: bad usehonk</h2>
+Wavs are tricky.  You must use the perfect path/name, with the right 
+capitals; sometimes even just adding or dropping the .wav extension in 
+the name can fix things.  If there are many wavs, you have to watch your
+ sound card channel limits, or you will lose 
+sounds/ambient_generics/wavs.  If the problem is a custom wav, it has to
+ be under the max size limit of less than  3 minutes, in the right 
+format. (format is: <b>unsigned, 8bit, mono, one start cue, 11025Hz PCM</b>.)<br>
+You can also try typing <i>developer 3</i> into the console while 
+playing the map, then walking through a trigger that targets the wav.  
+The report may give a hint as to what is wrong. <p>
+
+</p><h2>sound overrun</h2>
+Probably your wav is longer than 3 min, get a shorter one.  However, other (unknown as yet) problems have caused this to appear.<p>
+
+</p><h2>WARNING! sound/mapsounds/arc_tango.wav is causing runtime sample conversion!</h2>
+On some sound cards this happens.  Many times it is meaningless and can be ignored, but if  there 
+are problems see <a href="#wav">can't hear my wavs</a> above.<p>
+
+</p><h2>S_Findname - out of sfx_t</h2>
+Uncertain, but as a guess:
+<a title="thanks for the guess, Merle!">S_Findname() function could not find the name of a sound 
+effect data structure.</a><p>
+
+<a name="vmod"></a></p><h2>Unknown Command: VMod Enable</h2>
+This is a bug with Half-Life version 1.1.0.8, a problem with a voice command function in multiplayer 
+I believe, it's annoying but w'ell just have to put up with it until it's fixed in a later version.<p>
+
+</p><h2>emit_sound : pitch 346 &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp;  "sv_startsound: sound = 2550"</h2>
+This is a sound collision that can happen when 2 entitys try to make the same sound at the same time.  An example: <i>2
+ trains running the same rail sound, both trains started by the same 
+button so they try to open the sound file at the same time.</i>   The only known solution is to turn off the sound fx for both entitys....but that was for one case, feel free to experiment! <br>
+ (<i>For the SV also see <a href="#precache">SVC_BAD</a> - since I am 
+uncertain if it may not be related to memory overflow of too many 
+entitys loading too many wavs into the precache.  sv_startsound is just a
+ guess so far....</i>)<br>
+ You can also try typing <i>developer 3</i> into the console while 
+playing the map, then walking through a trigger that targets the wav.  
+The report may give a hint as to what is wrong.<p>
+
+<a name="trainsound"></a></p><h2>Can't hear my train sounds</h2>
+It has been reported that when you set the intial speed of a tracktrain 
+to higher than 0, sometimes the train sounds do not work?<p>
+
+</p><h2>Sentence or pitch shift ignored &gt; 16 playing</h2>
+This error can show up when you are testing in map, and more than 16 
+entitys stop at the same time, especially if they are func rotating, 
+which has pitch changes on stop sounds. 
+It is about a sound collision similar to <a href="#vmod">emit_sound : pitch 346</a> above.  
+This can happen even if you are not using any sound - it may be a programming bug in the engine.<br>  
+Solution is to make it so all entitys do not stop at the same time.<p>
+
+<a name="sprites"></a></p><h2>sprites problems</h2>
+Sprites are very tricky.  You must use the perfect path/name, with the 
+right capitals - or it will stop the game.  The path should start with 
+sprite/spritename, not the whole path name.  Sometimes <i>browsing</i> to the sprite works best, sometimes typing the path/name in works best.<br>
+In WC (but not Hammer) a sprite can lock up a level map as soon as it 
+opens, if the animated sprite is in one of the veiws.  The solution is 
+to close up all but one view and try again to load the level....or 
+remove the sprite from the WC sprites folder.<br>
+ If there is fog in a game, it reacts badly with sprites, so that the 
+sprite may have a black border/box, instead of invisible.  No solution 
+yet.<p>
+
+</p><h2>Entity xxx, Brush x: SKY brushes not allowed in entity </h2>
+Just what it says - you made one or more faces SKY in a brush that was tied to an entity.  
+SKY texture cannot be in an entity.  Either change the texture, or return the brush "to world".  
+Do not just delete the brush entity - you will end up with an <a href="#noent">empty brush</a> error.  
+Use the entity and brush number with a goto to find the problem.<p>
+
+<a name="rload"></a></p><h2>R_LoadSky: Couldn't load gfx/env/cl_forestrt.tga</h2>
+This is from a bad sky enviornment name. If the six sides are sky_lf, 
+sky_rt, sky_up, etc. you use only "sky_" in the cl_skyname field.  Always drop any cl_ and the last 2
+letters in a SKY bacground .tga name.  Another example: cl_forestrt.tga should be used as only "forest"
+for the sky name.<br>
+<i>Again, for most of us a bad sky enviornment name leaves us with the default enviornment.  But for some 
+mappers, this can cause odd error warnings: like a bad brush that does not exist, or brush outside 
+of map, or bad lighting in the map, or even a map crash when the bad sky comes into view.  
+Make sure you get that name RIGHT!</i>
+<p>
+
+<a name="logic"></a></p><h2>I push button/trigger in game and get kicked out</h2>
+If the compile was good, and there were no other problems, then the most common cause of this problem 
+is a logic loop with the entitys.  Two or more entitys are set to call each other, and somehow you 
+set them in motion - buffers fill with the loops in under a second, crash, and you are kicked out.  
+Or you have named the trigger/button the same name as the entity it targets.<br>
+Solution: fix the entitys.<br>
+However, sometimes something else sets off the kick off, so keep an open mind.  It could be:<ol>
+<li> You have a too big <a href="#wav">wav sound files</a> that starts.
+</li><li> You have a corrupt <a href="#sprites">sprite</a>/<a href="#modnum">model</a> that is called up.
+</li><li> You have something that moves out of the level, like a door - but it goes too far. 
+</li><li> See also <a href="#precache">precache</a> and <a href="#allocblock">allocblock:full</a> for other possible causes.
+</li><li>In one case where firing a gun crashed the map, it seems to have been <a href="#wav">too many 
+ambient_generics with too many wavs</a> playing at the same time that went over the channel limits of 
+the sound card.
+</li><li>Sometimes HL/mod (such as CS) maps which have the <i>game_player_equip</i> entity also crash when players 
+overload on weapons.
+</li><li>You are in software mode and are entering an area with sky, but the sky you entered is not in the 
+gfx/env folder.  See also: <i>R_LoadSky: Couldn't load gfx/env/cl_forestrt.tga</i> error.
+<a title="thanks ?maze master?">
+</a></li><li><a title="thanks ?maze master?">You have a strange video card that doesnt like the null texture. (very rare).
+</a></li><li><a title="thanks ?maze master?">You are triggering more than 16 things at EXACTLY the same time. 
+</a></li><li><a title="thanks ?maze master?">You are loading too many entities when you enter those areas.</a>
+<a title="thanks NinjaGrinch">
+</a></li><li><a title="thanks NinjaGrinch">You have a texture gone, leaving a window into the void in its place, causing a crash when you look. </a>
+</li><li>You have a Linux server, and something is named with captial letters which Linux does not handle
+like a Windoz server does.
+</li><li>It can be also something else in the server settings of any server kind.  
+</li><li>or it could be something else.  Isn't mapping fun?
+</li></ol><p>
+
+</p><h2>NON-Solid Set To Glow </h2>
+You set an entity into glow mode when you shouldn't have.  Check the 
+entitys in the map you made that you did not set a func_wall, or 
+func_door or anything else into glow mode.
+
+<a name="nohud"></a><h2>no HUD</h2>
+In HL you get no HUD until you get the enviornmental suit.  In 
+muliplayer mods you often get no HUD because you "ran"(f9) your level 
+thru WC, so you are in test map mode.  To get the HUD, open up your mod,
+ go lan/create your map, HUD should show up.<p>
+
+<a name="numplanes"></a></p><h2>ReadSurfs (line 99416): 32189 &gt; g_numplanes &nbsp;&nbsp;&nbsp; <i>or</i>
+  &nbsp;&nbsp;&nbsp;  max_map_planes</h2>
+Before you go wild, try a recompile or 2 - sometimes it is just a random
+ thing.  Also search for a brush with more than 32 faces, such as a 
+cylinder in the <a href="#maxpoints">Maxpoints</a> error.<br>
+Otherwise this error means you went over the limit of the number of 
+planes allowed. This means too many faces in the map = too many brushes,
+ or too complex ones. Time to trim back the level map! Some solutions:<ul>
+<li>Do not put a box around your map to fight leaks.  Seal each section seperately and fight the leak war.
+</li><li>Try to line up the faces of brushes with the same texture at 
+the same scale. Then the engine may make them into one face plane.  
+</li><li>Avoid detail brushes, use texture to "fake it" instead.
+</li><li>Plain make fewer brushes.  Keep construction simple.  HL and complexity mix poorly.
+</li><li>There are some newer compiler programs being tested that remove
+ unused and unneeded planes from the outside of a level.  You could try 
+to get and use one of them.
+</li></ul>
+<p>
+
+<a name="noedict"></a></p><h2>no free edicts  &nbsp;&nbsp;&nbsp; <i>or</i>
+  &nbsp;&nbsp;&nbsp; NUM_FOR_EDICT: bad pointer</h2>
+Each entity ingame takes up an edict slot, if the game ever runs out of 
+edict slots you get the crash "no free edicts." Solution is to reduce 
+the number of entitys in the level.  Single player mods may have a 
+different number of edicts than multiplayer mods, possible due to the 
+number of player entitys, sprites &amp; 
+models required.  <i>Reported general HL limits are SP=900 to 1024?, MP=1365 to 2048??  your Mod may vary.</i><br>
+However, in a small map with few entities, the error can also be too many of one sort of entity - 
+some Mods of HL have individual entity limits.<br>
+In addition the "bad pointer" may mean the bsp was corrupted, or even 
+that your game engine/dll is corrupted.  Test other maps to see if it 
+happens with them, and if not, get a new copy of the .bsp and retry.  If
+ it continues only with that map, then it is probably too many entitys.<p>
+
+</p><h2>node graph out of date, rebuilding</h2>
+The node graph is what controls the AI basicly. It's all the routes between your info_node entities. 
+Each time you change the map it must be rebuilt (which HL does). The more nodes and complexity of the 
+nodes, the longer it takes. The files for the graph are in the maps/graphs folder and should be 
+disrubuted with any 
+final map release if it's SP. Nodes shouldn't even be in normal HLDM maps.<p>
+
+<a name="lowmem"></a></p><h2>Memory allocation failure</h2>
+Description: The program failed to allocate a block of memory. Likely causes are (in order of likeliness) :
+<ul>
+<li>do not compile thru WC/Hammer F9 "running" - this hogs RAM.  Instead use a front end or batch file to organize your compiling;
+</li><li>the partition holding the swapfile is full (clean out your hard
+ drive, empty trash, clear out unused files, purge your temp files 
+folders and internet browsers temp files.); 
+</li><li>swapfile size is smaller than required (let swapfile be dynamicly allocated, do not set it too small yourself.); 
+</li><li>memory fragmentation (defrag your hard drive); 
+</li><li>heap corruption (reboot and try again.  If you have old RAM, make sure it is seated well.  check for viruses!). 
+</li><li>on at least one occasion this was caused by a corrupt prefab. 
+</li><li>on at least one occasion this was solved by removing a <a href="#skyboxing">skybox</a> and so making the level smaller.
+</li></ul>
+<p>
+
+<a name="allocblock"></a></p><h2>allocblock:full</h2>
+A <b>tough</b> one to figure out, vague error that usually shows up when you start the game or during 
+compile, or even when WC/Hammer starts up - you have gone over the memory limit somewhere for some 
+reason.  It can be too little RAM (128M is about minimum), a <a href="#leafsaw">leaf saw into leaf</a> 
+error, too long <a href="#token">pathnames</a>,  <a href="#manytext">too many textures</a>,  too big a 
+level, too big or too many model/sprites, too big a <a href="#wav">wav sound file</a> - or it could be 
+that old <a href="#odd">"too many wads"</a> mistake, a huge "noob" brush around the map to prevent 
+leaks, too many SKY faces on hidden brush faces in the level - or even something else. <i>Example: In early
+versions of NS, the 3D area info location entities were a major cause.</i> <br>
+If it happens during compile, do not use WC/Hammer to "run" the map, but
+ use a front end or batch file to compile with.  You could also get more
+ RAM.<p>
+(<i><b>The following may still be handy, however be aware that Software mode allocates memory dynamicly, 
+so it may automaticly seem to "fix" any error.  Therefore the following info MAY lead you into a dead end:<br>
+</b>Some brush-based entities have rendering properties that, when they interact in OpenGL/D3D video cards, they 
+crash. Switch Half-Life to Software mode first, then load the map. If it loads you now know it is 
+something that is handle different in software, then for Opengl/d3d check water, glows, additive, sprites, 
+transparencies (illusionaries, windows, ect.), env_beams and so on.</i>)</p><p>
+   
+  If it happens in opening a level in WC, it may be you have an 
+animating model showing in one view.  You must switch to single view 
+instead of multiple, and try different ones until you get past it.</p><p>
+
+</p><h2>z_malloc failed on allocation of xxx bytes  &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp;  D_SCAlloc: bad cache size 0</h2>
+Another insufficient memory or misallocated memory error.  Possible causes are many, including too 
+little RAM &amp; also by having a texture perpendicular to the face of the solid with WC.  
+In one case it was a script that shifted models one button.  Possible solutions are:<br>
+1. For memory telling the HL main engine how much memory to use with <b>HL -heapsize # </b>(1024 x number of meg is popular #) 
+or<b> HL -zone #</b> in the shortcut.<br>
+2. For texture perpendicular go into WC/Hammer, then you can press alt +
+ p, and select the problem if it is listed, and tell it to fix all of 
+type; then try to compile again.<br>
+3. Or go thru the other errors on this page and try them as fixes.  It CAN be frustrating!  Sorry.<p> 
+
+</p><h2>Malloc Block: Full</h2>
+The only time I ran across this it was a <a href="#leak">leak</a>. <p>
+
+<a name="precache"></a></p><h2>HOST ERROR: PF_precache_model_l:'sprites/spritename' overflow &nbsp;&nbsp;&nbsp; <i>or</i>
+  &nbsp;&nbsp;&nbsp;  No Precache &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; WARNING: missing precache: &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp;
+error running precache &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp;Host_Error: No player.mdl precache
+&nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; host error: precaching overflow on player models
+ &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; HOST ERROR: PF_precache_model_1:'models/modelname.mdl' overflow
+&nbsp;&nbsp;&nbsp; <i>or others</i></h2>
+Precache is a game memory problem. It often could be you have a bad path/name for a 
+<a href="#sprites">sprite</a>/<a href="#modnum">model</a>/wav.  But it can also be that you have too many 
+kinds or too large sprites, models(400 obj limit?), <a href="#wav">wav sound files</a>(limit&lt;3min) or 
+entitys(data limit ~0.5M) and have overfilled the space setup for them. (see also <b>SVC bad</b>
+ below.)   Sometimes combining entities into fewer helps, but usually 
+you will have to simplify to fewer kinds of sprites/models, or smaller 
+sprites/models/wavs.  Occasionally this error happens when you are using
+ a corrupted or non-standard model/sprite.  Using other folk's prefabs 
+are often hidden reasons for this problem. <br>
+Sometimes the <a href="#odd">"too many wads"</a> problem sets this off, 
+<a title="Some info by XP-cagey:
+The compile tools are supposed to consider the aaatrigger texture as SPECIAL -- this changes the compiler behavior for aaatrigger faces at several points: 
+1. aaatrigger is not subdivided up into 240x240 texture unit sized faces for texture display.
+2. aaatrigger doesn't have any light patches created by the compiler for lighting calculations.
+3. aaatrigger is allowed to have face extents greater than 16 units in any direction.
+4. aaatrigger is not lit by the tools (it and other special textures are skipped by BuildFaceLights(), PrecompLightmapOffsets(), FinalLightFace(), in HLRAD).">
+or having a brush textured with <u>AAAtrigger texture</u> visible in the map will cause this problem.</a><p>
+
+</p><h2>SVC_BAD &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; "500 overflow temporary ents!" &nbsp;&nbsp;&nbsp; <i>or</i>
+  &nbsp;&nbsp;&nbsp; FSB_ALLOWOVERFLOW</h2>
+Like Precache above, it is usually a memory problem.  This error is usually caused by too many entitys 
+that create/call models - like gib shooters, breakables and pushables.  The main solution is to cut 
+back on these.<br>
+Another cause of SVC bad in particular is compiling with -onlyents flag and having changed the 
+geometry of the map.  Also the SVC problem can happen because of various combinations of 
+entities that are on the map together, it can be caused by lifts that are set in the up position when 
+they have certain flags set, often a common cause of SVC bad is a bad compile where a brush based 
+entity hasn't been compiled properly, so this can even be caused by a brush based entity with an 
+invalid shape.  <i>SVC is a particularly tough one to figure out, good luck!</i><br>
+It is also possible that the other problems as in <a href="#precache">precache</a> 
+above are also causing these problems.<p>
+
+<a name="entlim"></a></p><h2>Error: too many entities &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; 
+Too many entity's in visible packet list</h2>
+That means you have too many entities visible/see-able at that time. There are two likely causes for this:<br> 
+Your not running VIS, or your map has huge ammounts of entities visible at a time.<br>
+Solution: run VIS -full, block line-of-sight (aka. vis blocking), combine like entitys in the same room
+- but only in the same room.<p>
+
+</p><h2>Entity Limitation notes:</h2>
+<table cellpadding="8" border="0"><tbody><tr><td width="40%" valign="top">
+The HL engine itself has a hard limit of 2048 entities, point or brush based, which is a data limit of 
+about 0.5M.  On top of that, Half-Life likes to generate it's own temporary entities 
+in-game for certain effects (ie. beams, sparks, projectiles...), these temporary entities have a limit of around 500, 
+see <a href="#precache">500 overflow temporary ents!</a> above.<br>
+But the compile tools have a limit of only 2048 for all editor placed entitys (MAX_MAP_ENTITIES). (<i>I am
+not sure if the temp entitys come out of this 2048 limit as well, but I suspect they do.</i>)
+And there is a sub-limit on switchable lights of 1024 (MAX_ENGINE_ENTITIES). 
+Additionally, you also have a compile side sub-limit of 400 for 
+brush based entities.  Mods that use cutscenes to start a round have even lower limits - DoD
+is now talking about 400-500 as the playing map limit of total entitys!  NS has a similar situation.<br>
+  Moreover, there seems to be special limits 
+for some entitys, like the limit of 16 rotating entitys that stop at the same time, due to the sound 
+limitations.  Or the limit of 32 players in most mods, or the general 8 fixed lights shining on a 
+face limit, the 3 switchable lights on a face - and so on.<br>
+<i>see also: <a href="#maxlim">general MAX_MAP limits from the SDK</a></i><br>
+</td><td width="60%">
+<a title="thanks Merle">
+<table bgcolor="silver" cellpadding="8" border="1"><tbody><tr><td>
+HL engine limits for ALL entitys -<br>
+</td><td>
+2048<br>
+</td></tr><tr><td>
+HL in-game temporary entity engine limit (part of the 2048?).  
+<i>Used for breakables, sparks, gibs, ect.</i><br>
+</td><td>
+500<br>
+</td></tr><tr><td>
+data memory limit for entitys<br>
+</td><td>
+~0.5M<br>
+</td></tr><tr><td>
+MAX_MAP_ENTITIES 
+Compiling tools limit for ALL editor placed entitys in a level, incuding
+ brush, models, sprites &amp; point entitys like lights (<i>mod limits may vary a bit lower</i>)<br>
+</td><td>
+2048<br>
+</td></tr><tr><td>
+MAX_ENGINE_ENTITIES (light, light_spot and light_environment entities that have either a targetname 
+or a style attached to them (ie. all switchable lighting in the map).
+</td><td>
+1024
+</td></tr><tr><td>
+compiling tools sub-limit of brush based entitys (part of the 2048)<br>
+</td><td>
+400<br>
+</td></tr><tr><td>
+<i>possible</i> model &amp; sprite entitys sub-limit (part of the 2048?)<br>
+</td><td>
+400<br>
+</td></tr><tr><td>
+specialty entity limits<br>
+</td><td>
+various<br>
+</td></tr></tbody></table></a>
+<!--inner chart-->
+</td></tr></tbody></table>
+<!--outer commentary-->
+<p>
+
+<a name="invalid"></a></p><h2>"Invalid Argument"</h2>
+If seen in compile, this means you probably set up the compile wrong, a 
+bad path/name, a bad instruction flag for a compiler, or something of 
+that nature.  The solution is to go back and check and recheck 
+everything to make sure it is all right. <br>
+Rarely it is a freak instance that causes one of the compile programs to
+ pass an invalid argument to one of its subroutines or functions (you 
+may not really understand that last bit unless you do a lot with 
+computer programing).  Then you should reinstall your compiling 
+programs.<br>
+If seen when testing a map in your mod it could be that you set up an 
+entity wrong in the map, for example a sprite calling a wav file. <p>
+
+<a name="noent"></a></p><h2>"Warning: No entities exist in hull #, no filling performed for this hull"</h2>
+Fairly obvious, you made the map without putting point entitys, like player starts.  However, 
+often this error will come up because an entity is outside the map; and other times this error 
+will be bogus and something else lies behind it like: the  <a href="#odd">"too many wads" or other 
+odd errors</a>, or you forgetting to export into .map format in WC, or a <a href="#leak">leak</a>, 
+or even a corruption of your level files!  This error seems to get pulled up often for the wrong problem.<p>
+</p><p>
+</p><h2>Empty Entity,  &nbsp;&nbsp;&nbsp; Solid Entity ..... is Empty &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; Entity has no brush</h2>
+You made a brush and tied it to an entity, but somehow deleted the brush
+ without deleting the entity.  An entity and brush number may be given, 
+but it is still hard to find the problem - and sometimes the wrong brush
+ is shown.  The best way to find the problem is to use the goto of the 
+map entity report, and goto each entity of that type.  When the goto 
+ends in a nowhere, showing no brush, that is probably the problem entity
+ you can delete.  But continue the check just in case there are more.
+<p>
+<a name="solidentity"></a><table bgcolor="blue" cellpadding="8" border="1"><tbody><tr><td>
+<a title="thanks Cross">by [DNv]Cross:<br>
+<h3>persistant misnamed errors</h3>
+<i><b>Solid Entitiy (entity_name) is Empty</b><br>
+This error occurs when two existing brush-based entities are selected, then both tied again to an 
+entity. WC/VHE asks the user which of the two entities he would like to keep, and is supposed to 
+discard the other. Instead, however, WC/VHE does not discard the remaining entity, but simply strips 
+it of it's brushes. Consequently, the user winds up with an empty entity.<br>
+On occassion, in the case that one of the brushes that was combined had an error, WC/VHE will 
+disguise the empty entity problem as that error. For instance, if a brush-entity with a malformed 
+face was combined into another entity, then the malformed face error will persist in WC/VHE and 
+may show up in the compile. However, when the user goes to check for the removed entity ##, he will 
+find that the entity "does not exist." So in effect, the "Solid entity is empty" error was disguised 
+as the malformed face error.<br>
+In order to correct this, open the map in WC/VHE and press alt-P to open the map error report. 
+Find the error that says Solid Entitiy (entity_name) is Empty and select it. Then press the GoTo 
+button and close the error report window. WC/VHE should now be centered on the origin in the 
+three construction views with nothing selected. Press the delete key on your keyboard. Repeat as 
+neccessary.<br>
+
+</i>- [DNv]Cross - </a>
+
+</td></tr></tbody></table>
+</p><p>
+
+<a name="origin"></a></p><h2>"Origin Brush....."</h2>
+ORIGIN textured brushes are not allowed in the level without being in an entity with another "visible" brush.
+(<i>CLIP brushes do not count as "visible".</i>)  
+Furthermore, there may not be more than one ORIGIN textured brush in an entity.  
+Make sure you did not accidentally clone the ORIGIN brush, and make sure it is tied into the same 
+entity as the rest of the brush it is supposed to work with, and finally make sure there is only one 
+ORIGIN brush in the entity.<br>
+<i>Note: For many entitys the ORIGIN brush does not have to actually 
+touch the other brushes in the entity.  Example: a rotating door as a 
+swinging garage door can have its "hinge"/pivot point, the ORIGIN brush,
+ below and inside the room the garage door is supposed to open.</i><p>
+
+</p><h2>"Clip Brush....."</h2>
+CLIP textured brushes are not supposed to be alone in an entity.  
+There should be a "visible" brush of some sort, even if it is an {invisible textured non-seen "visible".
+(<i>ORIGIN brushes do not count as "visible".</i>)
+CLIP textured brushes CAN be alone if they are NOT in an entity, that is how they are supposed to be used.<p>
+
+<a name="edge"></a></p><h2>Edge with both face id's already filled.</h2>
+<a title="thanks MuzzleFlash">The only time this came up, it was a bad brush with too many vertex points.</a>  See 
+<a href="#maxpoints">MAX POINTS</a> error. <p>
+
+<a name="modnum"></a></p><h2>"Mod-NumforName: xxxx.mdl not found"</h2>
+Often because the cycler entity, cyler sprite or some other entity used 
+has the wrong path/name.  You must use the perfect path/name, with the 
+right capitals - or it will stop the game.  The path should start with 
+model/modelname, not the whole path name.  Sometimes <i>browsing</i> to the model works best, sometimes typing the path/name in works best.<br>
+Also if you have changed the model, for example a new player model or a 
+new gib model, it can cause this problem.  Re-install the old model.<br>
+Sometimes the <a href="#odd">"too many wads"</a> problem sets this off too.<p>
+
+</p><h2>custom file has wrong number of lumps #</h2>
+I have only heard of this once, and then this error was just related to a
+ downloaded custom gun or player model.  Solution, switch back to the 
+official standard models.
+<p>
+
+</p><h2>green "flies" around a monster or player or model has yellow/gold dots</h2>
+The problem is the monster is stuck in the wall or too close to the wall
+ or a brush entity. When a monster/player/model gets stuck in a wall, 
+the engine  
+creates those dots/flies to draw your attention, so you realize your 
+mistake. Simply move him/it out of the 
+wall and it will be okay.<p>
+
+<a name="infonodeblob"></a></p><h2>had 5 small blobs of white, yellow, brown, and red dots</h2>
+<a title="thanks rsearle">If you have 5 small blobs of white, yellow, brown, and red dots; 
+one in the middle, and the other 4 circling clockwise.  This means you have an info_node error, 
+an info_node or info_node_air was connected to more than 256 or less than 1 other node. 
+Make sure the info_node can see at least one other node, and the blobs should disappear.</a> 
+<p>
+
+<a name="usrmsg"></a></p><h2>Host_error: UserMsg: Not Present on Client #</h2>
+This is not a map error or compiler error, it is a server/mod/HLTV/HL 
+error.  Some of these problems have been corrected with HLTV/mod/HL 
+updates.   I do not know the cause nor the solution at present - but 
+make sure you have all the most recent updates.<p>
+
+</p><h2>host error : PF_setview_1:not a client</h2>
+The only time I came across this, it was some error with a camera shot that started the level, and 
+taking the camera out fixed it.  <br>
+<a title="thanks EsBe / the Destroyer of Worlds"><blockquote><b>EsBe says:</b><i> 
+As the name implies, this error occurs when the game tries to change the view of a non-client to that 
+of the trigger_camera. What isn't so obvious is that the trigger_camera doesn't automatically target 
+the player. It will target who-/whatever triggered the camera entity. <br>
+Note that the game can trace the "activator" back through multiple entities. For example, if the 
+player walked through a trigger_once which triggered a camera, the game knows that the trigger_once 
+triggered the camera, but it also knows that the player triggered the trigger_once. The same applies 
+to a func_button, etc. I'm guessing that you tried to trigger the camera with a trigger_auto. This 
+would cause the camera to try to change the trigger_auto's view, not the client's, because the player 
+didn't actually trigger the trigger_auto. I would assume that this error would also occur when a 
+path_corner, etc., triggers a camera. </i>
+</blockquote></a>
+
+
+<a name="fileread"></a><h2>"file read failure"</h2>
+There is a problem reading the file.  The possible causes and possible 
+solutions vary so much I cannot list them ALL here, but for a HL/mod 
+game a few are:
+<ul>
+<li>corrupt bsp, needs replacing
+</li><li>corrupt MOD or HL program needs replacing - a virus?
+</li><li>corrupt sprite/wav/model/wad
+</li><li>a bad HardDrive sector that is not reading well or at all
+</li><li>a program is interfering with the game program
+</li><li>and many others are possible.
+</li></ul>
+
+<h2>Floating point division by zero</h2>
+This is a sign something is wrong.  But there is no certain cause nor answer.  Check first for <a href="#leak">leaks</a>, after that ANYTHING or everything on this webpage. Sorry.
+
+<p>
+</p><hr><center><a href="#top">Back to top of  page</a></center>
+</td></tr></tbody></table></p><p>
+<comment>end my error list*************************************************</comment>
+
+
+</p><p>
+<comment>begin JCHQ error list</comment>
+<table bgcolor="gray" cellpadding="8" border="1"><tbody><tr><td>
+<font color="lime">
+<a name="JCHQ"></a>
+<h1>Info mainly from <a href="http://vibrants.dk/jchq/faq/errors.htm" title="JCHQ">JCHQ</a>, who used many sources</h1>
+
+<a name="vismatrix"></a><h2>Vismatrix too big</h2>
+The other memory requirements (about half as much as the vismatrix's 
+usage) plus this put you over the top in memory. This pretty means your 
+physical memory + swap is less than all the memory qrad wants to 
+consume. A few things to work around it:
+<ol>
+<li> Increase swap.
+</li><li> Get more RAM.
+</li><li> Compile on a computer with more RAM.
+</li><li> Use a larger -chop value (default is 64) to make a smaller 
+vismatrix, sacrificing quality until you can get more RAM/access to 
+better machine etc.
+</li><li> Use qrad with -bounce 0 (no radiosity lighting) which skips 
+the vismatrix step and just does direct lighting. Uses a lot less RAM 
+but lighting is only a real rough approximation of how it would look if 
+it was allowed to bounce once or twice." 
+</li><li> use the -sparse value on HLRAD to use less memory.
+</li></ol> 
+see also: <a href="#skyboxing">skyboxing</a>.
+<p>
+
+<a name="swap"></a></p><h2>"Warning: SwapTransfers: unmatched"</h2>
+It's often a false problem in QRAD, but sometimes real.  solutions:<br>
+<ol>
+<li>use zoners compiling tools, especially HLRAD.
+other solutions are:<p>
+</p></li><li> If the map lights fine, ignore it. End of problem.
+</li><li> Undo my most recent changes, and see if the map lights then.
+</li><li> Rigorously check for any bad brushes.
+</li><li> Delete some lights, starting with switchable lights.
+</li><li> Make some random changes in the map, usually by way of scaling
+ some textures, and see if the map lights fine then. Scaling a texture 
+changes how big the polygon ends up being on a large surface (and thus 
+helps the speed), and it also affects the lighting of it. Outdoor areas 
+usually have most of the textures scaled up 2x2 or larger. I would first
+ pick textures that you won't really notice scaling on: near-black 
+textures, rocks, concrete, asphalt, whatever.
+</li><li> Move random brushes around, or delete brush entities.
+</li><li> Pick a good spot and cut the map into two separate maps with a
+ level transition. That is the most drastic but usually works if all 
+else has failed. 
+Other possible fixes from Neil include: 
+</li><li> Use the "-extra" option.in HLRAD
+</li><li> Delete the offending brush (One case was angled on several sides to a point)."
+</li></ol>
+
+<a name="parsing"></a><h2>"Error parsing brush"</h2>
+"This is usually caused by custom textures. Check all of your custom 
+textures and make sure there are no spaces in their names, all lowercase
+ letters. I'd bet you'll find a texture or 2 with a space in the name. 
+If you find one, just load that .wad back into Wally, change the name, 
+load the map back into Worldcraft, [alt]-p to bring up the error window,
+ and it'll tell you what brushes you used that had the texture you just 
+renamed so you can change it to the newly renamed texture. (You can't 
+save a .wad that's currently being used by Worldcraft, so be sure and 
+close Worldcraft before editing textures.)" 
+<table bgcolor="white" cellpadding="8" border="1"><tbody><tr><td>
+Usually this vague problem only happens in the older Q compiling tools, 
+if you install and use the newer  versions of Zoner's Compiling tools 
+the problem will go away, or be given a more specific named error.  
+However sometimes even in zoner's this shows up, due to <a href="#malformed">Malformed face normal</a>.<br>
+</td></tr></tbody></table>
+<p>
+
+<a name="token"></a></p><h2>"Token too large"</h2>
+This can refer to several different errors:
+<ol>
+<li>The <a href="#odd">"too many wads"</a> as mentioned above.  8 wads 
+in WC/Hammer is a good limit, more may cause this error among others.  
+If you are using more than 8 wads you can use Wally to combine the extra
+ wads into one custom wad.
+</li><li>Too long a path/name for the map or compiling tools.  Only a 
+limited amount of memory is set aside for the path/names.  Solution is 
+to move the compiling tools or map into a shallow folder.
+</li><li>Having a space in a path/name.  Examples: frequently /<b>Program Files</b>/
+ is part of the path name.  Compiling tools do not like the space 
+between "program" and "files".  Solutions are to either use the MSDOS 
+pathname, or to move the offending files from under the spaced folder, 
+or put quotes " " around the whole path name in WC/Hammer so that 
+windows uses it right.  If your map has the space in its name (eg. <b>Bob map</b>), remove the space and change it to (<b>Bobmap</b>).  
+</li></ol>
+
+<a name="page"></a><h2>"Illegal Page Fault"</h2>
+Mostly an old WC 2.1 error not seen often in WC3.3/Hammer. Causes are 
+illegal/bad brushes, or more usually the "too many wads" as mentioned 
+above.<p>
+ 
+<a name="miptex"></a></p><h2>"MAX_MAP_MIPTEX" (Zoner's Compiling Tools) &nbsp;&nbsp;&nbsp; <i>or</i> &nbsp;&nbsp;&nbsp; ReadSurfs (line ReadSurfs: 990 &gt; numtexinfo</h2>
+"Although Zoner's Compiling Tools recommends you to merge or remove unused textures (which in itself 
+indeed is very prudent), here's another solution. Just use the "-texdata" switch on the command-line 
+for HLCSG to increase the texture memory. Normally it's is set to 4096 KB (compared to 2048 KB 
+available to QCSG - the compiling tool Valve used), but you can set it up to at least 8192 KB. When 
+you do set it higher, look at the log output from HLCSG - it will tell you how much more than 4096 KB 
+it actually uses now.."<br>
+<a title="thanks SEThorian">
+<table bgcolor="white" cellpadding="8" border="1"><tbody><tr><td>
+The limits for -texdate can go as high as the mem of the video cards you expect to encounter. 
+For older Voodoo 2 cards it goes up to 8 meg (8192 KB) or 12 meg. If you KNOW your level is only going
+to be used on a local LAN where everyone has 64M vid cards, then you can set the -texdata to 64000 KB!
+But for public distribution you will already lose software mode players above -texdata 4096, and old vid card
+players above -textdata 8192.  The higher you go above that, the less folks can play it!<br>
+</td></tr></tbody></table></a><p>
+
+<a name="models"></a></p><h2>"MAX_MAP_MODELS"</h2>
+"The max_models error is that you have exceeded the maximum number of 
+brush based entities in your map. This can be either the total amount of
+ brush based entities or of a specific entity. <br>
+"So it's either too many of one type of brush based entity or you have 
+exceeded the number of brush based entities in the game (like trying to 
+make the whole map out of func_xxxxx entities)".<br>
+"Each player model, each grenade, nail, gib, etc. counts toward the 
+MAX_MAP_MODELS count. The total model count is always dynamic durring 
+the game and changes as new models are spawned and removed. You simply 
+need to make sure you leave some space. <br>
+see also: <a href="#entlim">entity limits</a>.<p>
+
+<a name="maxpoints"></a></p><h2>"MAXPOINTS"</h2>
+"Most level editing programs will happily allow you to create brushes 
+that cannot exist in the engine because of compiler and/or engine 
+limitations. As an example, use your favorite level editing program to 
+create a room with a 32-sided cylinder in the middle. WC/Hammer will let
+ you do this, and I'm sure that Quark will as well. Then try to compile 
+it - you'll choke on a MAXPOINTS error. The cylinder has two faces with 
+32 sides, which is above the MAXPOINTS limit (28) set by the compiling 
+tools."<p>
+
+<a name="vector"></a></p><h2>"CanonicalVector: Degenerate"</h2>
+"You've combined brushes into a func_water that doesn't form a rectangle
+ (or damn close to a rectangle). Func_waters are notorious for being 
+STUPID. I got this error just combining two worldbrushes that made up an
+ L shape into a func_water."
+<table bgcolor="white" cellpadding="8" border="1"><tbody><tr><td>
+If it isn't the water (most common), then check your triggers and other 
+brush entitys, odd shaped/illegal trigger brushes can also cause this 
+error.<br>
+</td></tr></tbody></table><p>
+</p><hr><center><a href="#top">Back to top of  page</a></center>
+</font>
+</td></tr></tbody></table>
+<comment>end jchq errors*************************************************</comment>
+<comment>begin zoner's errors</comment>
+</p><p>
+<table bgcolor="black" cellpadding="8" border="1"><tbody><tr><td>
+<font color="white">
+<a name="zoner"></a>
+<h1>Common Mapping Problems &amp; Compile Errors by Zoner with additions:</h1>
+
+<comment>begin the 3 related error table</comment>
+<table bgcolor="black" cellpadding="8" border="3" bordercolor="304CD8"><tbody><tr><td>
+<font color="white">
+<a name="plane"></a><h2>plane with no normal</h2>
+Example:<br>
+    <span class="CONSOLE">
+    Entity 10, Brush 0, Side 4: plane with no normal<br>
+    Entity 10, Brush 0, Side 5: plane with no normal<br>
+    </span>
+<p>This error is always caused by vertex manipulation.  A plane is defined by 3 unique coordinates.
+If any of the three coordinates are the same, then you don't really have a plane (its either a line or a point).  There
+is no way to fix this error other than to delete the brush and recreate it completely.
+</p><p>This is most commonly caused by dragging a vertex ontop of another to destroy it for several vertexes of the same face.
+The resulting brush can even look correct, but the side which you have destroyed can still have a point or two defined for it.
+The proper way to remove a face is to use a clipper.  If the object is simple (say converting a square to a wedge), then 
+dragging an edge via the yellow control points to merge multiple vertexes at once will probably be safe.<br>
+<table bgcolor="white" cellpadding="8" border="1"><tbody><tr><td>
+There is a new program <a href="http://extension.ws/hlfix/">HLfix</a> that is supposed to fix these.
+</td></tr></tbody></table>
+</p><p>
+
+<a name="coplane"></a></p><h2>brush with coplanar faces</h2>
+Example:<br>
+    <span class="CONSOLE">
+    Entity 10, Brush 0, Side 5: has a coplanar plane at (-753, -9, 251), texture CA1X_CON1B<br>
+    Entity 10, Brush 0, Side 6: has a coplanar plane at (-753, -32, 251), texture CA1X_CON1B<br>
+    </span>
+    <p>   
+This is always caused by vertex manipulation.<br>
+<table bgcolor="black" cellpadding="4" width="100%"><tbody><tr><td valign="top">
+<font color="white">   
+Say you have a five sided object like the following diagram:<br>
+<center><img width="243" height="262" src="Tommy%20of%20Escondido's%20Mapping%20help%20Tutorials%20for%20Half-Life%20&amp;%20Mods%20Errors%20&amp;%20solutions_files/coplanar-1.gif"><p>
+</p></center>
+</font>
+</td><td width="50%" valign="top">
+<font color="white">
+Moving the top point down to make the object into a square, will cause this error, as now 2 faces 
+are on the same plane, which is not allowed:<br>
+<center>
+<img width="226" height="203" src="Tommy%20of%20Escondido's%20Mapping%20help%20Tutorials%20for%20Half-Life%20&amp;%20Mods%20Errors%20&amp;%20solutions_files/coplanar-2.gif"><p>
+</p></center>
+</font>
+</td></tr></tbody></table>
+To fix this problem, either move the vertex causing the coplanar warning to make the brush convex 
+again, or move the rogue vertex onto one of its neighbors to destroy it.
+<br>
+<table bgcolor="white" cellpadding="8" border="1"><tbody><tr><td>
+There is a new program <a href="http://extension.ws/hlfix/">HLfix</a> that is supposed to fix these.
+</td></tr></tbody></table>
+</p><p>
+
+<a name="outside"></a></p><h2>brush 'outside world'</h2>
+Example:<br>
+    <span class="CONSOLE">
+    Entity 10, Brush 0: outside world(+/-4096): (-9000, -64, 216)-(9000,23,283)<br>
+    </span>
+<p>There are a few cases that create the 'outside world' error. The 
+first is an damaged brush, almost always
+created by a vertex manipulation gone wrong.  The coordinates listed in 
+the error are very important in
+diagnosing the error.  If any of the coordinates are -9000 or 9000, then
+ the brush is damaged, and
+most likely needs replacing completely.  The second most common case is 
+actually having a brush near or outside the edge
+of the allowable region for the world.  The brushes are expanded 
+slightly for some of the calculations during a compile,
+so brushes near the edge within 64 units will cause the error too.  The 
+cordon tool creates brushes automatically to box in the 
+cordon region, and their brushes can sometimes be quite large, and also 
+extend outside the world.  This can be verified by opening
+up the .map created by an export with cordon enabled, and looking to see
+ what brushes it made.</p><p>
+<br>
+<table bgcolor="white" cellpadding="8" border="1"><tbody><tr><td>
+There is a new program <a href="http://extension.ws/hlfix/">HLfix</a> that is supposed to fix these.
+</td></tr></tbody></table>
+</p><p>
+</p><center>
+<comment>begin cagey notes on 3 errors table</comment>
+<table bgcolor="white" border="1" width="99%" cellpadding="8"><tbody><tr><td>
+<b>These 3 errors are very closely related, almost all caused by vertex problems, often at the same 
+time.</b>  Causes can be you, or the editor.  Be careful when you manipulate vertexes!  But the editor
+can also mess up - WC/hammer is known for this.  Rotating a brush, clipping, carving, hollowing,
+copy/pasting a brush, even
+moving a brush can make the vertexes go "off the grid".  This is OK with the editor, it can handle
+decimal points.<br>
+But when the editor exports to .map, trouble arises.  The editor seems to move the vertexes to a grid
+point, often the nearest, but sometimes not.  So vertexes can end up in a line or on top of each other
+(<i>no normal</i>), or move so that 2 planes line up (<i>coplanar faces</i>), or move so that an 
+illegal face is made and in compile deleted - leaving a hole (<i>which results in outside world</i>).
+Sometimes the editor even seems to put the vertex outside the map (<i>again, outside world</i>)! <br>
+One fast way to check for this is to open your .map export with your editor, and look around.  If you
+see some funky brushwork, remember what brushes are involved, then go back to the .rmf and change the
+vertexes to meet the grid points.
+
+<p>
+
+A comment by 
+<a href="http://www.natural-selection.org/forums/index.php?s=7ad0a3b888a824046b39de0709ebecac&amp;act=ST&amp;f=4&amp;t=27735&amp;st=0&amp;#entry344768">
+Cagey</a> <a title="thanks cagey!
+the example:
+
+Error: Entity 59, Brush 10, Side 4: plane with no normal
+Error: Entity 59, Brush 10, Side 4: has a coplanar plane at (-3180, -2834, -4), texture YELLOW
+Error: Entity 59, Brush 11, Side 1: plane with no normal
+Error: Entity 59, Brush 11, Side 5: plane with no normal
+Error: Entity 59, Brush 11, Side 5: has a coplanar plane at (-3176, -2844, -15), texture YELLOW
+Error: Entity 59, Brush 11: outside world(+/-4096): (-10000,-7047,-7047)-(10000,7095,7095)">
+on a specific example of these problems:<br>
+</a></p><blockquote><a title="thanks cagey!
+the example:
+
+Error: Entity 59, Brush 10, Side 4: plane with no normal
+Error: Entity 59, Brush 10, Side 4: has a coplanar plane at (-3180, -2834, -4), texture YELLOW
+Error: Entity 59, Brush 11, Side 1: plane with no normal
+Error: Entity 59, Brush 11, Side 5: plane with no normal
+Error: Entity 59, Brush 11, Side 5: has a coplanar plane at (-3176, -2844, -15), texture YELLOW
+Error: Entity 59, Brush 11: outside world(+/-4096): (-10000,-7047,-7047)-(10000,7095,7095)"><i>
+For the record, a "Plane with no normal" error occurs when the three points specified for the plane 
+in the map file are colinear. When that's the case, the normal is logically indeterminate... the 
+program attempts to take the cross product of two edges and gets a vector of length zero, causing 
+it to throw the error.
+<br>
+Also for the record, if a brush has a bad plane definition, that plane is skipped when calculating 
+face boundaries in CSG, which is the probable cause of the "outside world" error you had for brush 
+11--if you remove one 
+plane from a brush and the remaining planes don't form the boundaries of 
+an enclosed polyhedron, the resulting brush created by CSG is bounded by arbitrary limits set by 
+program. 
+<br>
+That arbitrary limit for brush bounds was set just outside the legal world bounds so that logically 
+unbounded shapes will be reported by the program. In the case of brush 10, the remaining plane 
+intersections still define a complete solid even without the missing plane. <br>
+I should note that skipping invalid planes is only one cause of "outside world" errors... two 
+others are:
+<ul>
+ <li>explicitly creating items outside the +/-4096 bounds of allowed mapping space 
+(actually "outside world") and
+</li><li>creating items within (largest bounding box dimensions)/2 of +/-4096... when brushes are expanded 
+for the clipping hull, they end up partially outside the world (although this could be modified, 
+since simple geometry can demonstrate that any face that gets expanded across a world boundary must 
+be on the exterior and should be culled unless the map leaks).
+</li></ul>
+If the brush being reported as outside world isn't near the edge of the map, however, a skipped invalid plane is the best bet.
+</i></a></blockquote>
+</td></tr></tbody></table></center>
+<comment>end cagey notes on 3 errors  table</comment>
+</font>
+</td></tr></tbody></table>
+<comment>end the 3 related error table</comment>
+
+<a name="mixed"></a><h2>mixed face contents</h2>
+Example:<br>
+    <span class="CONSOLE">
+    Entity 0, Brush 12: mixed face contents<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Texture ROCK_X1 and SKY<br>
+    Entity 0, Brush 37: mixed face contents<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Texture STEEL_9 and WATER7<br>
+    </span>
+<p>In Halflife, brushes are required to have all faces be of the same 
+type (solid, water, slime, sky, origin).  
+Fortunately almost all textures are solid.  If you put a water texture 
+on one side of a brush which has dirt or steel textures for example, 
+that would generate the error. The engine needs to know what is inside 
+the brush, and it would be real confusing if different types could be 
+put onto the same brush.
+</p><p>
+The fix is relatively simple.  Simply find the offending brush, and then
+ the faces with the inappropriate texture and change it. If a brush uses
+ SKY, all sides must be sky. The same is true for CLIP, and ORIGIN 
+textures as well.  If you are careful it is possible to mix water 
+textures (provided you don't accidently use a slime texture on the 
+brush)</p><p>
+
+</p><h2>RankForContents: bad contents</h2>
+Rare error.  In one case it was a bad brush from vertex manipulation. <a title="thanks Firebinder.">
+In another case it was a func_door with the 'passable' flag set &amp; a large clip brush.</a>  Try an 
+editor "check for problems", otherwise retrying the compile may help.  If you are still stuck, 
+try the big block method or Cordon Boundry compiles to find the problem.<p>
+
+</p><p>
+<table><tbody><tr><td width="45%" valign="top"><font color="white">
+<a name="leak"></a><h2>=== LEAK in hull 0 ===</h2>
+Check out this tutorial: <a href="http://collective.valve-erc.com/index.php?go=leaks">http://collective.valve-erc.com/index.php?go=leaks</a>
+<p>The leak messages starting with 2.4 were updated to replace the old 
+'LEAK LEAK LEAK' messages.  The entity listed
+along with the error is just where the beginning of where the pointfile 
+is created, and can be used to help find the start of the line.
+It always goes from inside towards the outside, from this position.  
+Deleting this entity will usually just cause
+the leak to start somewhere else, without actually fixing it...but 
+sometimes an entity can cause a leak, for example a cycler
+the puts a model through a wall.</p></font><p><font color="white">
+<i>see also: <a href="#skyboxing">skyboxing</a></i>
+</font></p></td>
+<td width="50%">
+<comment>begin jchq</comment>
+<table bgcolor="gray" cellpadding="8" border="1"><tbody><tr><td>
+<font color="lime">
+<b>Info from <a href="http://vibrants.dk/jchq/faq/errors.htm" title="JCHQ">JCHQ</a></b> on the pointfile method of leak finding.<br>
+"Load up Half-Life (or the mod) with your leaked level, using the lines 
+"hl -console -dev -particles 50000" (or a bigger number) then, once its 
+loaded, in the console, type pointfile. [...} You will then see a dotted
+ line in your level that bounces around like crazy! Just follow it, and 
+the point where it leaves the level is where the leak is happening." 
+</font>
+</td></tr></tbody></table>
+<comment>end jchq, start purple light</comment>
+<p>
+<table bgcolor="white" cellpadding="8" border="1"><tbody><tr><td>
+<b>Purple block leak finding method</b><br>
+You surround the area you think may contain the leak with huge purple colored blocks, or another color that
+sticks out for you.  Then you run the map, and walk around trying to see the purple thru the cracks to find
+the leaks. After you fixed the leak, you remove the blocks.<br>
+</td></tr></tbody></table>
+<comment>end purple light</comment>
+</p></td></tr></tbody></table>
+<comment>end leak 0</comment>
+</p><p>
+
+<table><tbody><tr><td valign="top" width="30%"><font color="white">
+<h2>=== LEAK in hull 1 ===<br>
+=== LEAK in hull 2 ===<br>
+=== LEAK in hull 3 ===</h2>
+You can generally ignore these, but there is a possibility that part of the world somewhere will 
+either be solid where it shouldn't, or vice versa.  
+If it mentions Hull 4, see: <a href="#malformed">tiny penetration in Hull 4</a>.<p></p>
+<comment>begin big block</comment>
+</font></td><td>
+<table bgcolor="silver" cellpadding="8" border="1"><tbody><tr><td>
+<b>Big Block method - process of elimination</b> written by 
+<a href="http://www.snarkpit.com/tutorials.php?tut=leaks" title="Snark Pit">Leperous</a>.<br>
+<i>pros - finds any single leak/problem. &nbsp;&nbsp;&nbsp; cons - tedious, not for multiple leaks/problems.</i><br>
+Place a huge block over half of the level and compile with CSG and BSP only.<br> 
+If compile tells you you have a leak/problem anymore, it's in the region that you didn't cover up- 
+repeat step 1. Then if you still have a leak/problem, then you probably have several of them...If not, 
+then carry on with this process, but use multiple blocks, each time 1/2 the size of before. <br>
+Repeat process until you're using a very small block (e.g. 32 X 32 X 32). Search for the leak/problem
+ using the 3D window. Then you can copy the immediate region of the map (block off corridors etc.) 
+ into a new map and do the pointfile thing on it. <br>
+For this method to work, make sure your info_player_start isn't underneath the big block!<br>
+</td></tr></tbody></table>
+<comment>end big block</comment>
+</td></tr></tbody></table>
+<comment>end leak 123</comment>
+
+<a name="skywater"></a></p><h2>my SKY turns invisible when I am in a func_water</h2>
+This can happen when you have not done a complete error free compile with VIS -full and RAD, 
+or it can be because you have a bad driver for your video card.
+
+<a name="leafsaw"></a><h2>Leaf portal saw into leaf</h2>
+There are fine tutorials here : <a href="http://members.lycos.co.uk/EditHalfLife/tutorials/leafs.htm">http://members.lycos.co.uk/EditHalfLife/tutorials/leafs.htm</a> and at <a href="http://www.gamedesign.net/archive/old.gamedesign.net/quake2/tutorials/dewan_hint/index.html#VisibilityNodes">DeWan's Old Tutorial</a> on BSP and VIS.<p>
+<table bgcolor="white" border="1" cellpadding="8" width="100%"><tbody><tr><td>
+Basicly this comes from an area whose floor is not square enough, square floor areas never give this problem. <b>Note:</b> often if there is only one leaf saw leaf in a map level, it can be ignored.  So before getting busy, see how your map plays!<br>
+Solutions to try when you have a lot of leaf saws, or problems from leaf saws:
+<ol>
+<li><b>VIS -full compiles were designed to help with this problem, so 
+the FIRST thing to try is recompile with VIS -full and see if it goes 
+away.</b></li>
+<li>func wall any brushes within the coordinates given for the problem, 
+this will simplify VIS in the area because func wall brushes are 
+invisible for VIS.</li>
+<li>Move walls in the area to make the floors more square.</li>
+<li>Put a HINT brush across the trouble area. HINT brushes cut VIS leafnodes, so they will reshape the area and may fix the problem.</li>
+<li>Finally just start ripping brushes out of the area.</li>
+</ol>
+Fixing Leaf saw error has also been known to fix other errors in later RAD, like<br>
+<b>FindTransferOffsetPatchnum returned -1 looking for patch 1570 in patch 199's transfer lists</b> and other problems.<br>
+</td></tr></tbody></table>
+</p><p>
+
+<a name="maxpatch"></a></p><h2>Exceeded MAX_PATCHES</h2>
+<p>When hlrad runs, it takes all the visible faces in the game, and 
+divides them into sections called patches.  These patches are the 
+textures used as the lightmaps for the world.  There is a hard limit of 
+65535 patches that hlrad can deal with.  By default, a 64x64 game unit 
+chunk of space is the size of one patch.  If the texture scaling (not 
+texture size) is larger or smaller, it will directly affect the lightmap
+ size as well.  This means a texture with scale of 2, will have at best 
+1/4th as many patches
+as a texture with a scale of 1. 
+</p><p>Putting a 'box' around the level to protect from leaks is the 
+most commmon cause of this error, beyond excessively large maps.  The 
+box causes vis to keep the faces on the outside which would normally be 
+thrown away.  These faces are then required to have lightmaps.  Worst 
+case, is that putting a box around the level will usually cause an extra
+ 40-80% more lightmaps to be created than necessary.
+</p><p>Barring having a box, the other cause is large maps. The fixes are varied but can only help so far.
+</p><ul><li>Remove any "box" from around your level and fight the <a href="#leak">leak leak leak</a> war the right way.
+</li><li>If you have not boxed in your level, then the #1 fix is running HLRAD with the -sparse flag - but compile will be slower.  
+</li><li>Using -chop values larger than the default 64 for hlrad will cause the light patches to be larger.  
+However, for values larger than around 96 the map's lights start looking bad, and will more prominently 
+show the 'staircase' effect on shadows.  
+</li><li>Using a larger scale on large textures (dirt, rock walls, concrete) will help those large surfaces 
+consume fewer patches for lighting.
+</li></ul>
+<i>see also: <a href="#skyboxing">skyboxing</a></i>
+<p>
+
+<a name="vis"></a></p><h2>HLVIS is SLOW</h2>
+<table cellpadding="4"><tbody><tr><td valign="top">
+<comment>outer vis rad</comment>
+<table bgcolor="black" cellpadding="4" align="left"><tbody><tr><td>
+<font color="white">
+<comment>left side</comment>
+<p>For most well designed maps, vis should have a worst case run time of
+ about 45 minutes on a single p2-300 class computer.  If it is taking 
+longer, then the map probably needs work to add vis blockers.  Several 
+things can make vis take way longer than usual:
+</p><p>First, if the world has been 'boxed in' to prevent leaks, vis has
+ to spend large amounts of time on the exterior gaps which would 
+normally not exist on a map without a box. 
+</p><p>Second, The architecture which connects 'areas' together might be
+ a bit confusing for vis to figure out.  It is somewhat difficult to 
+explain, but a few examples would be: halls lacking a wall somewhere 
+which is not directly on the XZ or YZ plane; halls that intersect rooms 
+on a plane other than XZ or YZ, large rooms with walls that are not 
+vertical; halls that connect two areas but the areas can see each other 
+through the hall; Lots of little tiny brushwork in an area (especially 
+large areas) that is not an entity.
+</p><p>Third, vis is quickly brought to a crawl by large outdoor areas that are not extremely carefully constructed to
+not too see much 'indoors'..
+</p><p>And finally, using an older version of <a href="http://tarot.telefragged.com/gensurf/">gensurf</a> that does not support ZHLT's HINT brushes.
+</p><p>It is highly advised experiment heavily with test maps with 
+sample architecture, using software mode, r_drawflat 1, and r_draworder 1
+ in order to
+see how vis works.  Also, read the HINT brush tutorials described in the
+ section on HINTs.</p><p>
+
+<a name="rad"></a></p><h2>HLRAD is SLOW/stuck on makescales</h2>
+<p>HLRAD requires large amounts of memory to run efficiently for all but the most trivial of maps.
+</p><p>The vismatrix hlrad needs to run takes exponentially more RAM as 
+the vismatrix grows.  The formula is
+'number of patches' squared, then divided by 16.  This number is how 
+many bytes it will consume.  The maximum is 65535 patches, so 
+the maximum vismatrix is 256Mb of RAM.
+</p><p>Furthermore, the amount of memory the vismatrix uses is not all 
+the memory hlrad needs to run.  
+Depending on the visibility of the map, the  'scales' cache consumes 
+large amounts of memory at once as well.
+For most maps, this amount of memory is close to 1/2 the size of the 
+vismatrix.  This generally equates to a maximum of 128Mb, or
+a system total of 384Mb to run the worst case (65535 patches) map.
+</p><p>The makescales phase has a tendency to run fast right up until it
+ runs out of physical memory and has to start relying on the swapfile.
+This is frequently noticeable as makescales running quickly (say 20 
+minutes) up until the 90% mark, then taking several hours to
+finish the last 10%.  This is always caused by running out of physical 
+memory, and the last 10% work requiring heavy use of the swapfile.
+If more architecture is added to the map, one can see that it will start
+ taking exponentially longer to compile, until the RAM is upgraded.
+</p></font><p><font color="white">Besides simply adding large quantities of RAM to the computer, the fix for this problem is identical to fixing 
+a MAX_PATCHES error.  Applying those fixes will reduce the number of patches, and cause HLRAD to need less memory,
+often speeding up the compile dramatically.  If all has been done, there is also the option of using -bounce 0 with 
+HLRAD, and using just direct lighting for test compiles of the map.  Ideally one would then using a non-zero -bounce 
+for the final compile.
+</font>
+</p></td></tr></tbody></table>
+<comment>left</comment>
+</td><td width="22%" valign="top">
+<table bgcolor="blue" cellpadding="8" border="1"><tbody><tr><td>
+<comment>right</comment>
+by [DNv]Cross:
+
+<b>VIS AND RAD KEEP CRASHING DURING COMPILE</b><p>
+<i>When compiling, VIS and RAD have a tendency to become completely caught up in their work. 
+Basically, unlike most other programs, VIS and RAD give your map priority over Windows.
+Windows will poke every program running every few seconds (usually with a redraw command) and 
+wait to see if the program gives a reply. In the case of VIS and RAD, they are usually working 
+so hard on compiling the MAP file that they completely ignore and fail to respond to Windows pokes. 
+The result, windows says "Not Responding" next to the program name and things may fail to be re-drawn 
+(leaving ugly white program forms behind).
+</i></p><p><i>
+All there is to do is sit back and wait while VIS and RAD go about compiling your map. 
+Compile times average a few hours even on the most up-to-date machines, so be prepared to wait a 
+while. If your map is poorly constructed, you might even get your compile to take a few days 
+(I've had to wait 96 hours before.. 4 days!).</i>
+</p><p>
+- [DNv]Cross - 
+</p></td></tr></tbody></table>
+<comment>right</comment>
+</td></tr></tbody></table>
+<comment>outer</comment>
+
+<table bgcolor="white" border="1" width="600" cellpadding="8"><tbody><tr><td>
+<center>See also the multilight slowing as explained in <a href="#blackhand">Warning: Too many 
+direct light styles on a face</a>.
+</center></td></tr></tbody></table>
+<p>
+
+<a name="badsurface"></a></p><h2>Bad Surface Extents</h2>
+<p>This is typically caused by having extremely large scales on faces, (typically "stretching" far 
+above 10, usually 100+).  Otherwise it almost always shows up on a 'check for problems' in Worldcraft 
+as a 'texture axis perpendicular to face' error.<br>  
+If you are using a newer version of Zoner's compile tools, the name of the texture, what 
+# brush/# entity is involved, the coordinates of the problem face, and the amount of scaling should 
+all be listed to make it easier to find and fix.</p><p>
+</p><center>
+<comment>begin bad surface extents table</comment>
+<table bgcolor="white" border="1" width="95%" cellpadding="8"><tbody><tr><td>
+If the numbers given include a 0, such as 16345/0, it often (but not always) means the texture has
+gone perpendicular to the face. This usually is a result of rotating the brush, clipping, carving,
+hollowing or vertex manipulation, remember where you did that and you may find it faster.<br>
+If it is numbers like 3456/2 or 3/532 then it usually means a stretching texture  problem.  These often come from "fitting"
+a texture to a brush, especially thin brushes like signs or doors. Then a texture may get shrunk too far
+also, so do not go below 0.1 for scale or over 10 for scale, either causes frequent problems.<br>
+If the editor cannot find it for you, using the Big block elimination method or the cordon tool may
+be you best bet to figuring this out, unless you want to start ripping your level apart.... 
+</td></tr></tbody></table></center><p>
+<comment>end bad surface extents table</comment>
+
+<a name="texturedef"></a></p><h2>missing [ in texturedef</h2>
+<p>The 'missing [ in texturedef' message can be caused several ways:
+</p><ul>
+<li>One or more faces has no texture, or the texturename is just made up
+ of spaces.  Check for problems in WC 3.3/Hammer should detect them as 
+'invalid texture' messages.</li>
+<li>The texture name on one or more faces has a space in the middle of 
+the name somehow (Textures are not allowed to have spaces in their 
+names)</li>
+<li>You are using Worldcraft 2.0 or 2.1, and the worldspawn has a key/value of "mapversion" "220"  If so, remove it.</li>
+<li>A Worldcraft 3.3 map was imported into WC 2.1 or 2.2, same problem as above.</li>
+<li>A Worldcraft 3.3 map was imported into Quark, also the same problem :)</li>
+<li>The map is in Worldcraft 3.3's .map format, but the "mapversion" "220" is MISSING from the worldspawn (this is really rare).</li>
+</ul>
+
+<a name="maxportal"></a><h2>MAX_PORTALS_ON_LEAF</h2>
+<p>This is normally caused by having large rooms which connect to a lot of
+other hallways, alcoves, or other similar shapes.  Alternatively it is
+caused by an invalid brush, of which each one is usually unique and you
+would have to find on your own (though Worldcraft is pretty good about
+finding them in its 'check for problems' feature).</p>
+<center>
+<comment>picture table</comment>
+<table bgcolor="black" cellpadding="8" width="90%"><tbody><tr><td>
+<img width="454" height="442" src="Tommy%20of%20Escondido's%20Mapping%20help%20Tutorials%20for%20Half-Life%20&amp;%20Mods%20Errors%20&amp;%20solutions_files/max_portals_on_leaf.gif">
+</td><td>
+<font color="white">
+This image is an example top-down view of a complex room.<p>
+  The pink area is the room, the blue area are the walls.</p><p>  
+The main big room is one leaf, each alcove is a leaf, but the big leaf joins all the little
+ones for a total of 32 portals.
+</p></font><p><font color="white">
+  MAX_PORTALS_ON_LEAF is 256 in Halflife, so
+this problem is quite rare and usually a side effect of having a damaged brush in the map.
+</font>
+</p></td></tr></tbody></table>
+</center>
+<comment>picture table</comment>
+<p>
+
+
+<a name="hint"></a></p><h2>How the heck do I use HINTs/How does VIS work</h2>
+<p>There are some decent tutorials.  First, there is the excellent <a href="http://countermap.counter-strike.net/Tutorials/tutorial.php?id=2">CounterMap tutorial</a> for HL/CS.<br>
+Second, there is <a href="http://www.gamedesign.net/archive/old.gamedesign.net/quake2/tutorials/dewan_hint/#HintBrushes">Geoffrey DeWan's old tutorial</a> on the subject.  Although for Q2, the concepts are identical.  It is worth reading the whole article,
+and it is also worth noting that the SKIP support in Halflife that was added to ZHLT is not as robust. <br>
+Third, <a href="http://www.gamedesign.net/archive/old.gamedesign.net/quake2/tutorials/hint_brush/hint_brush.shtml">Another old tutorial</a>, also for quake2, is also in the gamedesign.net archives.
+
+<a name="clipnode"></a></p><h2>MAX_MAP_CLIPNODES</h2>
+<p>There isn't any way to add more nodes or clipnodes to the bsp's (its already maxed out).  
+However, at least clipnodes can be reduced with a bit of work.</p>
+<p>When the maps are compiled all the 3d 'space' a player can get to is
+broken up into convex regions just like brushes are required to be, alot of
+them are extremely small or too small for a player, and if you put a CLIP
+brush over them they don't become clipnodes at all (well really there are
+still a few intersecting the brush on its surfaces, but the brush can be
+excluding dozens or hundreds of them at a time).</p>
+<p>If the world has had a 'box' placed around it to prevent leaks, its
+probably causing several thousand (if not 10000+) extraneous nodes and
+clipnodes to be caused, not only wasting resources but will cause vis to
+work a lot harder than it needs to.  
+<a href="http://www.valve-erc.com/content/resources/zhlt/clipnode.map">An example map is available</a>, 
+demonstrating how it is possible to reduce the clipnodes in a map.  Without the clip brush
+in place, the map requires over a hundred more clipnodes to define the player-accessable space.<br>
+<table bgcolor="white" border="1" width="700" cellpadding="8"><tbody><tr><td>
+<a href="http://collective.valve-erc.com/index.php?go=mhlt">Merle's new compiler</a> also trims some
+excess unneed clipnodes, which means a little more you can build.  Get it.
+</td></tr></tbody></table>
+</p><p>
+</p><hr><center><a href="#top">Back to top of  page</a></center>
+</font>
+</td></tr></tbody></table>
+<comment>end zoners errors</comment>
+</p><p>
+
+<comment>begin cross on skyboxing</comment>
+<a name="skyboxing"></a><table bgcolor="blue" cellpadding="8" border="1"><tbody><tr><td>
+by [DNv]Cross:<br>
+<br>
+<h2>ALL YOU EVER WANTED TO KNOW ABOUT A SKY BOX:</h2>
+<i>The method which has been described is called a sky box. THIS IS 
+EVIL! NEVER USE THIS METHOD! Ok.. now that i'm done flaming sky boxes, 
+I'll go into an explanation.<br>
+BSP maps consist of two separate areas. The level area, and the outer 
+void area. When a map is compiled, both MUST be included in the map, or 
+the compiler will not work correctly. The compiler defines the "inner" 
+level area by entities and the "outer" void area by a lack thereof. When
+ the compiler cannot distinguish between the inner and outer area due to
+ a lack of a boundary, entities on both sides of the boundary, or simply
+ no entities at all, a leak is generated.<br>
+<br>
+When an entity is specified with a leak, that entity is (99% of the 
+time) not the problem, but is simply the closest entity to the problem. 
+Instead of just simply deleting that entity, you must find the cause of 
+the leak (hopefully you haven't deleted your entire level already). 
+There are many methods to this. The pointfile method, the leakfinder 
+program, and the block (not skybox) method. Each of these has been 
+discussed many many times (and is in the Hammer/WC help file if you take
+ a look ).<br>
+<br>
+<br>
+What happens when you make a skybox:<br>
+<br>
+- Your r_speeds will get much worse<br>
+- Your map will take longer to compile<br>
+- You will no longer have leaks, but at a high cost<br>
+- Your map will be a larger file than neccessary<br>
+<br>
+What is not good about a skybox:<br>
+<br>
+- The outer walls of your map are compiled along with the inner walls, 
+creating a lot more work for the VIS and RAD programs, making the 
+compile much slower.<br>
+<br>
+- In game, r_speeds will rise significantly because the engine will have
+ to draw the outside of the level at times as well as the inside.<br>
+<br>
+- You will lose valuable file space to the outside faces of your map. 
+This will increase your map's file size and limit the number of objects /
+ walls you can place in your map.<br>
+<br>
+How do I make a skybox:<br>
+<br>
+I hate to tell you so you don't go and make one. However, since I want you to avoid this method, I 
+will tell you what NOT to do.<br>
+<br>
+A skybox is simply a very large box drawn around the entire level, then hollowed out.<br>
+So use SKY instead as a "lid" for each section, or put it behind the glass in windows.<p>
+One more thing to Know:<br>
+Skyboxes are the epitome of newbieism. I have a policy in which I will 
+make a point to delete any map in which a skybox is used. You will 
+notice such a method is not used in any distributed maps nor in 90% of 
+the maps out there.
+</p></i><p><i>
+- [DNv]Cross - 
+</i>
+</p></td></tr></tbody></table>
+<comment>end cross on skyboxing</comment>
+</p><p>
+</p><hr>
+webpage copyright (c) Sept 2003 Tommy of Escondido<br>
+
+
+</body></html>
